@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Impact Mechanica - The Future of Protection</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 1. Add the Model Viewer script -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
@@ -38,6 +40,11 @@
             background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.1;
+        }
+        /* 2. Style for model-viewer to ensure it fits the layout */
+        model-viewer {
+            width: 100%;
+            height: 540px; /* Adjust height as needed */
         }
     </style>
 </head>
@@ -74,10 +81,22 @@
                 </p>
 
                 <div class="my-10">
-                     <img src="https://placehold.co/960x540/171717/A855F7?text=Cinematic+3D+Animation+of+Lattice+Formation" 
-                         alt="Cinematic 3D animation showing the generative AI creating the head guard's unique lattice structure."
-                         class="w-full max-w-4xl mx-auto rounded-2xl border-2 border-neutral-700 hero-glow"
-                         onerror="this.onerror=null;this.src='https://placehold.co/960x540/171717/FFFFFF?text=Brand+Film+Unavailable';">
+                    <!-- 3. Replace the <img> tag with the <model-viewer> tag -->
+                    <!-- Note: For this to work on your GitHub Pages site, you must upload "Scrum Cap v1.1.glb" -->
+                    <!-- and ensure the `src` path is correct (e.g., src="assets/Scrum Cap v1.1.glb") -->
+                    <model-viewer 
+                         src="Scrum Cap v1.1.glb"
+                         ios-src="Scrum Cap v1.1.usdz"
+                         alt="A 3D model of the Impact Mechanica V1 Head Guard"
+                         ar
+                         auto-rotate
+                         camera-controls
+                         disable-zoom
+                         camera-orbit="0deg 75deg 105%"
+                         shadow-intensity="1"
+                         style="--mv-progress-bar-color: #a855f7;"
+                         class="w-full max-w-4xl mx-auto rounded-2xl border-2 border-neutral-700 hero-glow">
+                    </model-viewer>
                 </div>
 
                 <div class="flex justify-center gap-4">
