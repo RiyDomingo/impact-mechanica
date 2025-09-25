@@ -58,19 +58,20 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Canvas for hero background animation */
+        /* Canvas for hero background animation - UPDATED */
         #neural-network-canvas {
-            position: absolute;
+            position: fixed; /* Changed to fixed */
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 0;
+            z-index: -1; /* Pushed behind all content */
             opacity: 0.15;
         }
     </style>
 </head>
 <body class="antialiased">
+    <canvas id="neural-network-canvas"></canvas>
 
     <!-- Header -->
     <header class="header-bg fixed top-0 left-0 right-0 z-50">
@@ -90,7 +91,7 @@
     <main>
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center text-center pt-24 pb-12 overflow-hidden">
-             <canvas id="neural-network-canvas"></canvas>
+             <!-- Removed canvas from here -->
              <div class="absolute inset-0 bg-grid-neutral-800 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
              <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
 
@@ -409,7 +410,7 @@
 
             const resizeCanvas = () => {
                 canvas.width = window.innerWidth;
-                canvas.height = canvas.parentElement.offsetHeight;
+                canvas.height = window.innerHeight;
             };
 
             const createParticles = () => {
