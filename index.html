@@ -33,12 +33,6 @@
             transform: translateY(-8px);
             box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
         }
-        .feature-card svg {
-            transition: transform 0.3s ease;
-        }
-        .feature-card:hover svg {
-            transform: scale(1.1);
-        }
         .step-number {
              border-color: #525252; /* neutral-600 */
         }
@@ -54,22 +48,13 @@
         /* Styles for scroll animations */
         .animate-on-scroll {
             opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+            transition-delay: var(--scroll-anim-delay, 0s);
         }
         .animate-on-scroll.is-visible {
             opacity: 1;
             transform: translateY(0);
-        }
-        /* Canvas for hero background animation */
-        #neural-network-canvas {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            opacity: 0.15;
         }
     </style>
 </head>
@@ -93,7 +78,6 @@
     <main>
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center text-center pt-24 pb-12 overflow-hidden">
-             <canvas id="neural-network-canvas"></canvas>
              <div class="absolute inset-0 bg-grid-neutral-800 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
              <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
 
@@ -135,7 +119,7 @@
             <div class="container mx-auto px-6 text-center">
                 <div class="flex justify-center items-center gap-4 animate-on-scroll">
                     <p class="text-slate-400 font-semibold tracking-wider">A Harvard Innovation Labs Venture</p>
-                    <img src="assets/Harvard Innovation Labs Logo 1.png" alt="Harvard Innovation Labs Logo" class="h-12 w-auto opacity-80">
+                    <img src="assets/Harvard_Innovation_Lab_logo.jpg" alt="Harvard Innovation Labs Logo" class="h-12 w-auto opacity-80">
                 </div>
             </div>
         </section>
@@ -167,12 +151,25 @@
                     <h3 class="text-sm font-bold uppercase text-purple-400 tracking-widest">The V1 System</h3>
                     <h2 class="text-3xl md-text-5xl font-bold tracking-tighter mt-2">The Blueprint for Your Best Performance.</h2>
                 </div>
-                 <div class="text-center max-w-4xl mx-auto animate-on-scroll">
-                    <img src="https://placehold.co/960x540/171717/A855F7?text=Animated+'Scan-to-Lattice'+Visual" 
-                         alt="Animation showing a 3D head scan morphing into a complex lattice structure and then into the final V1 Head Guard."
-                         class="w-full mx-auto rounded-2xl border-2 border-neutral-700"
-                         onerror="this.onerror=null;this.src='https://placehold.co/960x540/171717/FFFFFF?text=Animation+Unavailable';">
-                     <p class="text-slate-300 mt-6 text-lg">Our process is a seamless fusion of biology and engineering. We map your unique anatomy, use generative AI to engineer a bespoke protection matrix, and then forge your V1 Head Guard using industry-leading Carbon® DLS™ technology.</p>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Step 1: Map -->
+                    <div class="text-center p-8 rounded-xl feature-card animate-on-scroll">
+                        <div class="mx-auto mb-6 w-20 h-20 flex items-center justify-center border-4 step-number rounded-full text-purple-400 text-3xl font-bold">1</div>
+                        <h3 class="text-2xl font-bold mb-2">Map Your Anatomy</h3>
+                        <p class="text-slate-300">Once you're invited, you'll use our proprietary Kintura™ App and your iPhone's TrueDepth camera to capture a flawless 3D scan—the essential digital blueprint of your unique anatomy.</p>
+                    </div>
+                    <!-- Step 2: Forge -->
+                    <div class="text-center p-8 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
+                        <div class="mx-auto mb-6 w-20 h-20 flex items-center justify-center border-4 step-number rounded-full text-purple-400 text-3xl font-bold">2</div>
+                        <h3 class="text-2xl font-bold mb-2">Engineer Your Advantage</h3>
+                        <p class="text-slate-300">From this blueprint, our generative AI engineers a bespoke impact-absorbing lattice—your personal protection matrix. No two are identical.</p>
+                    </div>
+                    <!-- Step 3: Unleash -->
+                    <div class="text-center p-8 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
+                        <div class="mx-auto mb-6 w-20 h-20 flex items-center justify-center border-4 step-number rounded-full text-purple-400 text-3xl font-bold">3</div>
+                        <h3 class="text-2xl font-bold mb-2">Unleash Your Potential</h3>
+                        <p class="text-slate-300">Your custom V1 Head Guard is then forged using industry-leading Carbon® DLS™ technology, ensuring unparalleled precision and material quality.</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -191,7 +188,7 @@
                          class="w-full h-auto rounded-xl border-2 border-neutral-700"
                          onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/FFFFFF?text=Image+Unavailable';">
                     </div>
-                    <div class="pl-0 md:pl-8 animate-on-scroll">
+                    <div class="pl-0 md:pl-8 animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
                         <h3 class="text-sm font-bold uppercase text-purple-400 tracking-widest">The Science of Performance</h3>
                         <h2 class="text-3xl md:text-5xl font-bold tracking-tighter mt-2 mb-6">More Than Protection. It's an Advantage.</h2>
                         <p class="text-lg text-slate-100 font-semibold mb-6">The V1 is The First Digitally Manufactured Rugby Head Guard.</p>
@@ -200,7 +197,7 @@
                         </p>
                         <ul class="space-y-4">
                             <li class="flex items-start">
-                                <svg class="w-6 h-6 text-purple-500 mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 B24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
+                                <svg class="w-6 h-6 text-purple-500 mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
                                 <div>
                                     <h4 class="font-bold text-white">Advanced Energy Damping</h4>
                                     <p class="text-slate-300">Our AI designs a complex internal lattice that collapses with precision to absorb and redirect impact forces away from the head. </p>
@@ -243,12 +240,12 @@
                         <h4 class="text-xl font-bold mb-2 text-white">Apex Predator Aesthetic</h4>
                         <p class="text-slate-300">A formidable, modern aesthetic designed to give you a psychological edge before the first whistle.</p>
                     </div>
-                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
                        <svg class="w-12 h-12 mx-auto mb-4 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Featherlight Strength</h4>
                         <p class="text-slate-300">Manufactured in partnership with Carbon®, our DLS™ process creates a guard that is stronger and more durable at a fraction of the weight.</p>
                     </div>
-                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
                         <svg class="w-12 h-12 mx-auto mb-4 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3m-16.5 0h16.5m-16.5 0a2.25 2.25 0 0 0-2.25 2.25v11.25A2.25 2.25 0 0 0 3.75 19.5h16.5A2.25 2.25 0 0 0 22.5 17.25V5.25A2.25 2.25 0 0 0 20.25 3m-16.5 0Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Unobstructed Vision</h4>
                         <p class="text-slate-300">Your hyper-personalized fit guarantees the guard stays locked in place, providing total peripheral awareness without distraction.</p>
@@ -258,12 +255,12 @@
                         <h4 class="text-xl font-bold mb-2 text-white">Absolute Custom Fit</h4>
                         <p class="text-slate-300">Moves as you move. By eliminating pressure points and slippage, the V1 feels less like equipment and more like a natural extension of your body.</p>
                     </div>
-                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
                         <svg class="w-12 h-12 mx-auto mb-4 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 0 1 0 3.75H5.625a1.875 1.875 0 0 1 0-3.75Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Unrivaled Breathability</h4>
                         <p class="text-slate-300">Stay cooler under pressure. The open-cell lattice provides maximum airflow, reducing heat buildup from kickoff to the final whistle.</p>
                     </div>
-                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
                         <svg class="w-12 h-12 mx-auto mb-4 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a2.25 2.25 0 0 0-2.25-2.25H15a3 3 0 1 1-6 0H5.25A2.25 2.25 0 0 0 3 12m18 0v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6m18 0a2.25 2.25 0 0 0-2.25-2.25H5.25A2.25 2.25 0 0 0 3 9.75m18 0Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Hygienic by Design</h4>
                         <p class="text-slate-300">The non-porous, open-cell structure rinses clean and dries fast, preventing the odor and bacteria buildup common in foam-based gear.</p>
@@ -287,11 +284,11 @@
                     </div>
                     <!-- For the Parent & Coach -->
                     <div class="lg:col-span-1 space-y-8">
-                         <div class="p-6 rounded-xl feature-card animate-on-scroll" style="transition-delay: 100ms;">
+                         <div class="p-6 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
                              <h3 class="text-xl font-bold mb-2 text-white">For The Parent</h3>
                             <p class="text-slate-300">Invest in data-driven peace of mind. Our Harvard-backed technology provides a new standard in proven, personalized protection for your athlete.</p>
                         </div>
-                        <div class="p-6 rounded-xl feature-card animate-on-scroll" style="transition-delay: 200ms;">
+                        <div class="p-6 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
                              <h3 class="text-xl font-bold mb-2 text-white">For The Coach</h3>
                             <p class="text-slate-300">Protect your most valuable assets. Maximize team potential by equipping players with superior technology that inspires confident, aggressive play.</p>
                         </div>
@@ -310,7 +307,7 @@
                 </div>
                 <div class="max-w-4xl mx-auto grid md:grid-cols-3 gap-8 items-center text-center animate-on-scroll">
                     <div class="md:col-span-1">
-                        <img src="assets/Harvard_Innovation_Lab_logo.jpg" alt="Harvard Innovation Labs Logo" class="h-24 w-auto mx-auto opacity-90">
+                        <img src="assets/Harvard_Innovation_Lab_logo.jpg" alt="Harvard Innovation Labs Logo" class="h-12 w-auto mx-auto opacity-90">
                     </div>
                     <div class="md:col-span-2 md:text-left">
                         <p class="text-lg md:text-xl text-slate-200 italic leading-relaxed">
@@ -327,7 +324,7 @@
         <!-- Early Access CTA Section -->
         <section id="early-access" class="py-20 sm:py-32 bg-neutral-900/50">
             <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto">
+                <div class="max-w-3xl mx-auto animate-on-scroll">
                     <h2 class="text-3xl md:text-5xl font-bold tracking-tighter">Be The First To Know</h2>
                     <p class="text-slate-300 mt-4 text-lg leading-relaxed">Join the waitlist for a chance at early access and exclusive updates.</p>
                     <ul class="text-center text-white text-lg space-y-2 mt-6 mb-8 inline-block">
@@ -363,85 +360,35 @@
     </footer>
     
     <script>
-        // --- Animated Background Script ---
-        const canvas = document.getElementById('neural-network-canvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
+        // --- Scroll Animation Script ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollElements = document.querySelectorAll('.animate-on-scroll');
 
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = canvas.parentElement.offsetHeight;
-        }
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
 
-        function createParticles() {
-            particles = [];
-            const particleCount = Math.floor(canvas.width * canvas.height / 20000);
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.3,
-                    vy: (Math.random() - 0.5) * 0.3,
-                    radius: Math.random() * 1.5 + 1,
+            const displayScrollElement = (element) => {
+                element.classList.add("is-visible");
+            };
+
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
                 });
             }
-        }
 
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(168, 85, 247, 0.5)';
-                ctx.fill();
+            window.addEventListener('scroll', () => {
+                handleScrollAnimation();
             });
-
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-                    if (dist < 150) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(168, 85, 247, ${1 - dist / 150})`;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animate);
-        }
-
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            createParticles();
-        });
-        
-        resizeCanvas();
-        createParticles();
-        animate();
-
-
-        // --- Scroll Animation Script ---
-        const scrollElements = document.querySelectorAll('.animate-on-scroll');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        scrollElements.forEach(el => {
-            observer.observe(el);
+            
+            // Initial check on load
+            handleScrollAnimation();
         });
     </script>
 </body>
