@@ -58,6 +58,16 @@
             opacity: 1;
             transform: translateY(0);
         }
+        /* Canvas for hero background animation */
+        #neural-network-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -80,6 +90,7 @@
     <main>
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center text-center pt-24 pb-12 overflow-hidden">
+             <canvas id="neural-network-canvas"></canvas>
              <div class="absolute inset-0 bg-grid-neutral-800 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
              <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
 
@@ -389,6 +400,72 @@
             window.addEventListener('scroll', handleScrollAnimation);
             handleScrollAnimation(); // Initial check
         });
+
+        // --- New, Stable Animated Background Script ---
+        const canvas = document.getElementById('neural-network-canvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            const resizeCanvas = () => {
+                canvas.width = window.innerWidth;
+                canvas.height = canvas.parentElement.offsetHeight;
+            };
+
+            const createParticles = () => {
+                particles = [];
+                const particleCount = Math.floor(canvas.width / 50); // Reduced particle count
+                for (let i = 0; i < particleCount; i++) {
+                    particles.push({
+                        x: Math.random() * canvas.width,
+                        y: Math.random() * canvas.height,
+                        vx: (Math.random() - 0.5) * 0.2, // Slower speed
+                        vy: (Math.random() - 0.5) * 0.2,
+                        radius: Math.random() * 1 + 0.5,
+                    });
+                }
+            };
+
+            const animate = () => {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+
+                    if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                    if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = 'rgba(168, 85, 247, 0.6)';
+                    ctx.fill();
+                });
+
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
+                        if (dist < 120) { // Reduced connection distance
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            ctx.strokeStyle = `rgba(168, 85, 247, ${0.8 - dist / 120})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            };
+
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                createParticles();
+            });
+            
+            resizeCanvas();
+            createParticles();
+            animate();
+        }
     </script>
 </body>
 </html>
