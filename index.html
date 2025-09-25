@@ -58,21 +58,9 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Canvas for hero background animation - UPDATED */
-        #neural-network-canvas {
-            position: fixed; /* Changed to fixed */
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Pushed behind all content */
-            opacity: 0.15;
-        }
     </style>
 </head>
 <body class="antialiased">
-    <canvas id="neural-network-canvas"></canvas>
-
     <!-- Header -->
     <header class="header-bg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -91,7 +79,6 @@
     <main>
         <!-- Hero Section -->
         <section class="relative min-h-screen flex items-center justify-center text-center pt-24 pb-12 overflow-hidden">
-             <!-- Removed canvas from here -->
              <div class="absolute inset-0 bg-grid-neutral-800 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
              <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
 
@@ -115,8 +102,9 @@
                          camera-controls
                          camera-orbit="0deg 75deg 105%"
                          shadow-intensity="0.5"
-                         exposure="2.5"
-                         style="--mv-progress-bar-color: #a855f7; --model-viewer-background-color: radial-gradient(circle, #FFFFFF, #E0E0E0);"
+                         exposure="3.0"
+                         tone-mapping="commerce"
+                         style="--mv-progress-bar-color: #a855f7; --model-viewer-background-color: #FFFFFF;"
                          class="w-full max-w-4xl mx-auto rounded-2xl border-2 border-neutral-700 hero-glow">
                     </model-viewer>
                 </div>
@@ -169,7 +157,9 @@
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Step 1: Map -->
                     <div class="text-center p-8 rounded-xl feature-card animate-on-scroll">
-                         <svg class="w-16 h-16 mx-auto mb-6 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-5.571 3m-11.142 0L12 15.25l5.571-3m-5.571 0l-5.571 3L12 21.75l9.75-5.25-5.571-3m-5.571 3l5.571 3m-5.571-3l-5.571-3" /></svg>
+                        <svg class="w-16 h-16 mx-auto mb-6 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607zM10.5 7.5v6m3-3h-6" />
+                        </svg>
                         <h3 class="text-2xl font-bold mb-2">Map Your Anatomy</h3>
                         <p class="text-slate-300">Once you're invited, you'll use our proprietary Kintura™ App and your iPhone's TrueDepth camera to capture a flawless 3D scan—the essential digital blueprint.</p>
                     </div>
@@ -181,7 +171,9 @@
                     </div>
                     <!-- Step 3: Unleash -->
                     <div class="text-center p-8 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
-                        <svg class="w-16 h-16 mx-auto mb-6 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56v4.82a6 6 0 01-1.82.32l-3.5-7L8.74 8.74l-7 3.5a6 6 0 012.83-5.84m2.56 5.84L8.74 8.74m0 0l3.5 7m-3.5-7l3.5-7m-3.5 7l-7 3.5a6 6 0 015.84-2.83m13.14 2.83l-7-3.5m7 3.5l-7 3.5a6 6 0 01-5.84-2.83m2.56 5.84l3.5-7m-3.5 7l-3.5-7" /></svg>
+                        <svg class="w-16 h-16 mx-auto mb-6 text-purple-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
                         <h3 class="text-2xl font-bold mb-2">Unleash Your Potential</h3>
                         <p class="text-slate-300">Your custom V1 Head Guard is forged using industry-leading Carbon® DLS™ technology, ensuring unparalleled precision and material quality.</p>
                     </div>
@@ -374,97 +366,34 @@
         </div>
     </footer>
     
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    // --- Scroll Animation Script (unchanged) ---
-    const scrollElements = document.querySelectorAll('.animate-on-scroll');
+    <script>
+        // --- Scroll Animation Script ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const scrollElements = document.querySelectorAll('.animate-on-scroll');
 
-    const elementInView = (el, dividend = 1) => {
-        const elementTop = el.getBoundingClientRect().top;
-        return (
-            elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
-        );
-    };
+            const elementInView = (el, dividend = 1) => {
+                const elementTop = el.getBoundingClientRect().top;
+                return (
+                    elementTop <= (window.innerHeight || document.documentElement.clientHeight) / dividend
+                );
+            };
 
-    const displayScrollElement = (element) => {
-        element.classList.add("is-visible");
-    };
+            const displayScrollElement = (element) => {
+                element.classList.add("is-visible");
+            };
 
-    const handleScrollAnimation = () => {
-        scrollElements.forEach((el) => {
-            if (elementInView(el, 1.25)) {
-                displayScrollElement(el);
-            }
-        });
-    }
-
-    window.addEventListener('scroll', handleScrollAnimation);
-    handleScrollAnimation(); // Initial check
-
-    // --- Canvas Background Animation (fixed) ---
-    const canvas = document.getElementById('neural-network-canvas');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        const resizeCanvas = () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        };
-
-        const createParticles = () => {
-            particles = [];
-            const particleCount = Math.floor(canvas.width / 50);
-            for (let i = 0; i < particleCount; i++) {
-                particles.push({
-                    x: Math.random() * canvas.width,
-                    y: Math.random() * canvas.height,
-                    vx: (Math.random() - 0.5) * 0.2,
-                    vy: (Math.random() - 0.5) * 0.2,
-                    radius: Math.random() * 1 + 0.5,
+            const handleScrollAnimation = () => {
+                scrollElements.forEach((el) => {
+                    if (elementInView(el, 1.25)) {
+                        displayScrollElement(el);
+                    }
                 });
             }
-        };
 
-        const animate = () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(p => {
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(168, 85, 247, 0.6)';
-                ctx.fill();
-            });
-
-            for (let i = 0; i < particles.length; i++) {
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dist = Math.hypot(particles[i].x - particles[j].x, particles[i].y - particles[j].y);
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        ctx.strokeStyle = `rgba(168, 85, 247, ${0.8 - dist / 120})`;
-                        ctx.lineWidth = 0.5;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animate);
-        };
-
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            createParticles();
+            window.addEventListener('scroll', handleScrollAnimation);
+            handleScrollAnimation(); // Initial check
         });
+    </script>
+</body>
+</html>
 
-        resizeCanvas();
-        createParticles();
-        animate();
-    }
-});
-</script>
