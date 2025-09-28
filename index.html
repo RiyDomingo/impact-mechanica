@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        'brand-purple': '#7030A0',
-                        'brand-purple-dark': '#5d2786',
+                        'brand-blue': '#2563EB',
+                        'brand-blue-dark': '#1D4ED8',
                     }
                 }
             }
@@ -28,8 +28,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* gray-900 */
-            color: #D1D5DB; /* gray-300 */
+            background-color: #FFFFFF;
+            color: #111827; /* gray-900 */
         }
         .font-headline {
             font-family: 'Oswald', sans-serif;
@@ -38,10 +38,10 @@
             letter-spacing: 0.05em;
         }
         .header-bg {
-            background-color: rgba(17, 24, 39, 0.8);
+            background-color: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid #374151; /* gray-700 */
+            border-bottom: 1px solid #F3F4F6; /* gray-100 */
         }
         model-viewer {
             width: 100%;
@@ -64,13 +64,13 @@
     <!-- Header -->
     <header class="header-bg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <h1 class="text-2xl font-headline tracking-wider text-white">Impact <span class="text-brand-purple">Mechanica</span></h1>
+            <h1 class="text-2xl font-headline tracking-wider text-gray-900">Impact <span class="text-brand-blue">Mechanica</span></h1>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#technology" class="text-gray-400 hover:text-white transition-colors">Technology</a>
-                <a href="#validation" class="text-gray-400 hover:text-white transition-colors">Validation</a>
-                <a href="#mission" class="text-gray-400 hover:text-white transition-colors">Mission</a>
+                <a href="#technology" class="text-gray-600 hover:text-gray-900 transition-colors">Technology</a>
+                <a href="#validation" class="text-gray-600 hover:text-gray-900 transition-colors">Validation</a>
+                <a href="#mission" class="text-gray-600 hover:text-gray-900 transition-colors">Mission</a>
             </nav>
-            <a href="#early-access" class="bg-brand-purple text-white font-semibold px-6 py-2 rounded-full hover:bg-brand-purple-dark transition-colors">
+            <a href="#early-access" class="bg-brand-blue text-white font-semibold px-6 py-2 rounded-full hover:bg-brand-blue-dark transition-colors">
                 Apply to Join
             </a>
         </div>
@@ -78,17 +78,17 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="min-h-screen flex items-center pt-24 pb-12 bg-gray-900">
+        <section class="min-h-screen flex items-center pt-24 pb-12">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="text-left">
-                        <h2 class="font-headline text-5xl md:text-6xl lg:text-7xl leading-none text-white">
-                            The Future of <br> <span class="text-brand-purple">Protection</span> <br> is Personal.
+                        <h2 class="font-headline text-5xl md:text-6xl lg:text-7xl leading-none text-gray-900">
+                            The Future of <br> <span class="text-brand-blue">Protection</span> <br> is Personal.
                         </h2>
-                        <p class="mt-6 text-lg text-gray-300 max-w-md">
+                        <p class="mt-6 text-lg text-gray-600 max-w-md">
                            The V1 Head Guard is the first hyper-personalized protective system, engineered from your unique 3D scan to deliver a level of performance and safety previously thought impossible.
                         </p>
-                        <a href="#early-access" class="mt-8 inline-block bg-brand-purple text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-purple-dark transition-colors text-lg">
+                        <a href="#early-access" class="mt-8 inline-block bg-brand-blue text-white font-semibold px-8 py-4 rounded-full hover:bg-brand-blue-dark transition-colors text-lg">
                             Apply for the Founder's Program
                         </a>
                     </div>
@@ -105,8 +105,8 @@
                              shadow-intensity="0.5"
                              exposure="2.5"
                              tone-mapping="commerce"
-                             style="--mv-progress-bar-color: #7030A0; --model-viewer-background-color: #FFFFFF;"
-                             class="w-full rounded-2xl">
+                             style="--mv-progress-bar-color: #2563EB; --model-viewer-background-color: #FFFFFF;"
+                             class="w-full rounded-2xl border border-gray-200">
                         </model-viewer>
                     </div>
                 </div>
@@ -114,98 +114,98 @@
         </section>
 
         <!-- Harvard i-labs Section -->
-        <section class="py-12 border-y border-gray-800 bg-gray-900">
+        <section class="py-12 border-y border-gray-200">
             <div class="container mx-auto px-6 text-center">
                 <div class="flex justify-center items-center gap-4 animate-on-scroll">
-                    <p class="text-gray-400 font-semibold tracking-wider">A HARVARD INNOVATION LABS VENTURE</p>
+                    <p class="text-gray-500 font-semibold tracking-wider">A HARVARD INNOVATION LABS VENTURE</p>
                     <img src="assets/Harvard Innovation Labs Logo 1.png" alt="Harvard Innovation Labs Logo" class="h-16 w-auto" loading="lazy">
                 </div>
             </div>
         </section>
 
         <!-- Manifesto/Problem Section -->
-        <section class="py-20 sm:py-32 bg-gray-900">
+        <section class="py-20 sm:py-32">
             <div class="container mx-auto px-6">
                  <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="animate-on-scroll">
-                         <h3 class="font-headline text-4xl md:text-5xl text-white">Brute Force vs. <br> <span class="text-brand-purple">Intelligence.</span></h3>
-                         <p class="mt-4 text-lg text-gray-300 max-w-lg">Every "one-size-fits-all" product is a compromise. With rugby's governing bodies facing lawsuits from over 1,100 former players, the need for a smarter, data-driven solution has never been more urgent.</p>
+                         <h3 class="font-headline text-4xl md:text-5xl text-gray-900">Brute Force vs. <br> <span class="text-brand-blue">Intelligence.</span></h3>
+                         <p class="mt-4 text-lg text-gray-600 max-w-lg">Every "one-size-fits-all" product is a compromise. With rugby's governing bodies facing lawsuits from over 1,100 former players, the need for a smarter, data-driven solution has never been more urgent.</p>
                     </div>
                     <div class="mt-8 md:mt-0 animate-on-scroll">
-                        <video class="rounded-lg w-full" autoplay loop muted playsinline>
+                        <video class="rounded-lg w-full border border-gray-200" autoplay loop muted playsinline>
                             <source src="assets/epu45-bowling-ball-split.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                         </video>
-                        <p class="text-xs text-gray-500 mt-2 text-center">Video courtesy of Carbon, Inc.</p>
+                        <p class="text-xs text-gray-400 mt-2 text-center">Video courtesy of Carbon, Inc.</p>
                     </div>
                 </div>
             </div>
         </section>
         
         <!-- Pillar 2: Personal Protection Blueprint Section -->
-        <section id="technology" class="py-20 sm:py-32 border-y border-gray-800">
+        <section id="technology" class="py-20 sm:py-32 bg-gray-50 border-y border-gray-200">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
-                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-white">Your Personal <br> Protection Blueprint.</h2>
-                    <p class="text-gray-300 mt-4 text-lg">Our AI analyzes your 3D scan to identify unique contours and high-risk areas, allowing us to generate a lattice structure that is intelligently tuned—denser where you need it most, and lighter where you don't.</p>
+                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-gray-900">Your Personal Protection Blueprint.</h2>
+                    <p class="text-gray-600 mt-4 text-lg">Our AI analyzes your 3D scan to identify unique contours and high-risk areas, allowing us to generate a lattice structure that is intelligently tuned—denser where you need it most, and lighter where you don't.</p>
                 </div>
                 <div class=" animate-on-scroll">
-                    <img src="https://placehold.co/1200x400/111827/7030A0?text=Data-to-Benefit+Visual+(Scan+->+Heatmap+->+Lattice)" alt="A diagram showing a 3D head scan being translated into a heat map of impact zones, which then informs the final AI-generated lattice structure." class="rounded-xl shadow-lg w-full border-2 border-gray-800">
+                    <img src="https://placehold.co/1200x400/F9FAFB/1E3A8A?text=Data-to-Benefit+Visual+(Scan+->+Heatmap+->+Lattice)" alt="A diagram showing a 3D head scan being translated into a heat map of impact zones, which then informs the final AI-generated lattice structure." class="rounded-xl shadow-lg w-full">
                 </div>
             </div>
         </section>
 
         <!-- Compliance and Safety Section -->
-        <section id="safety" class="py-20 sm:py-32 bg-gray-900">
+        <section id="safety" class="py-20 sm:py-32">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                     <div class="p-8 rounded-xl text-center animate-on-scroll">
-                        <h3 class="font-headline text-3xl mb-2 text-white">World Rugby Compliant</h3>
-                        <p class="text-gray-300">Engineered to meet and exceed World Rugby performance and safety standards, ensuring it's ready for play at all levels.</p>
+                        <h3 class="font-headline text-3xl mb-2 text-gray-900">World Rugby Compliant</h3>
+                        <p class="text-gray-600">Engineered to meet and exceed World Rugby performance and safety standards, ensuring it's ready for play at all levels.</p>
                     </div>
                     <div class="p-8 rounded-xl text-center animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
-                        <h3 class="font-headline text-3xl mb-2 text-white">Engineered for CTE Protection</h3>
-                        <p class="text-gray-300">Our intelligent lattice is specifically designed to manage the rotational and linear impact forces associated with concussions and long-term brain health.</p>
+                        <h3 class="font-headline text-3xl mb-2 text-gray-900">Engineered for CTE Protection</h3>
+                        <p class="text-gray-600">Our intelligent lattice is specifically designed to manage the rotational and linear impact forces associated with concussions and long-term brain health.</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Pillar 3: Validation Section -->
-        <section id="validation" class="py-20 sm:py-32 border-y border-gray-800">
+        <section id="validation" class="py-20 sm:py-32 bg-gray-50 border-y border-gray-200">
             <div class="container mx-auto px-6">
                 <div class="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
-                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-white">Validated by Science, <br> Ready for the Field.</h2>
+                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-gray-900">Validated by Science, <br> Ready for the Field.</h2>
                 </div>
                 <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="bg-gray-800 p-8 rounded-xl text-center animate-on-scroll border border-gray-700">
-                        <h4 class="font-headline text-2xl mb-2 text-white">Lab Validated</h4>
-                        <p class="text-gray-300 mb-6">The V1's performance has been digitally validated through thousands of simulated impact scenarios using Finite Element Analysis (FEA).</p>
-                        <a href="#" class="text-brand-purple font-bold hover:text-purple-300 transition-colors">Read the Technical Brief &rarr;</a>
+                    <div class="bg-white p-8 rounded-xl text-center animate-on-scroll border border-gray-200 shadow-sm">
+                        <h4 class="font-headline text-2xl mb-2 text-gray-900">Lab Validated</h4>
+                        <p class="text-gray-600 mb-6">The V1's performance has been digitally validated through thousands of simulated impact scenarios using Finite Element Analysis (FEA).</p>
+                        <a href="#" class="text-brand-blue font-bold hover:underline">Read the Technical Brief &rarr;</a>
                     </div>
-                    <div class="bg-gray-800 p-8 rounded-xl text-center animate-on-scroll border border-gray-700" style="--scroll-anim-delay: 0.1s;">
-                        <h4 class="font-headline text-2xl mb-2 text-white">Field Ready</h4>
-                        <p class="text-gray-300 mb-6">Our exclusive Founder's Program will gather on-field data from elite athletes, providing the final layer of real-world validation.</p>
-                         <a href="#early-access" class="text-brand-purple font-bold hover:text-purple-300 transition-colors">Join the Program &rarr;</a>
+                    <div class="bg-white p-8 rounded-xl text-center animate-on-scroll border border-gray-200 shadow-sm" style="--scroll-anim-delay: 0.1s;">
+                        <h4 class="font-headline text-2xl mb-2 text-gray-900">Field Ready</h4>
+                        <p class="text-gray-600 mb-6">Our exclusive Founder's Program will gather on-field data from elite athletes, providing the final layer of real-world validation.</p>
+                         <a href="#early-access" class="text-brand-blue font-bold hover:underline">Join the Program &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Our Mission Section -->
-        <section id="mission" class="py-20 sm:py-32 bg-gray-900">
+        <section id="mission" class="py-20 sm:py-32">
             <div class="container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-12 items-center max-w-5xl mx-auto animate-on-scroll">
                      <div class="md:col-span-1">
                         <img src="assets/Harvard_Innovation_Lab_1X1_logo.jpg" alt="Harvard Innovation Labs Logo" class="h-48 w-48 object-contain mx-auto" loading="lazy">
                     </div>
                     <div class="md:col-span-1 md:text-left">
-                        <p class="text-xl text-gray-200 italic leading-relaxed">
+                        <p class="text-xl text-gray-800 italic leading-relaxed">
                            "The age of generic equipment is ending. My journey from Harvard's School of Public Health to the engineering labs at Stanford was driven by a single vision: a future where an athlete's gear is as unique as their own biology."
                         </p>
                         <div class="mt-6">
-                            <p class="font-bold text-white">Dr. Cherise Dunn, PhD, MPH (Harvard)</p>
-                            <p class="text-sm text-gray-400">Founder, Impact Mechanica</p>
+                            <p class="font-bold text-gray-900">Dr. Cherise Dunn, PhD, MPH (Harvard)</p>
+                            <p class="text-sm text-gray-500">Founder, Impact Mechanica</p>
                         </div>
                     </div>
                 </div>
@@ -213,14 +213,14 @@
         </section>
 
         <!-- Early Access CTA Section -->
-        <section id="early-access" class="py-20 sm:py-32 bg-brand-purple text-white">
+        <section id="early-access" class="py-20 sm:py-32 bg-gray-900 text-white">
             <div class="container mx-auto px-6 text-center">
                 <div class="max-w-3xl mx-auto animate-on-scroll">
-                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl text-white">Become an Impact Mechanica Founder.</h2>
-                    <p class="text-purple-200 mt-4 text-lg leading-relaxed">Join our exclusive Founder's Program. Be one of the first athletes in the world to experience the V1 and help shape the future of protection.</p>
+                    <h2 class="font-headline text-4xl sm:text-5xl md:text-6xl">Become an Impact Mechanica Founder.</h2>
+                    <p class="text-gray-300 mt-4 text-lg leading-relaxed">Join our exclusive Founder's Program. Be one of the first athletes in the world to experience the V1 and help shape the future of protection.</p>
                     <form class="mt-8 flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                        <input type="email" placeholder="Enter your email address" class="flex-grow w-full px-5 py-4 rounded-full bg-brand-purple-dark border-2 border-purple-400 text-white placeholder-purple-200 focus:outline-none focus:ring-2 focus:ring-white transition" required>
-                        <button type="submit" class="bg-white text-brand-purple font-bold px-8 py-4 rounded-full hover:bg-gray-200 transition-transform hover:scale-105">
+                        <input type="email" placeholder="Enter your email address" class="flex-grow w-full px-5 py-4 rounded-full bg-gray-800 border-2 border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-white transition" required>
+                        <button type="submit" class="bg-white text-gray-900 font-bold px-8 py-4 rounded-full hover:bg-gray-200 transition-transform hover:scale-105">
                             Apply to Join
                         </button>
                     </form>
@@ -230,14 +230,14 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 border-t border-gray-800">
+    <footer class="bg-white border-t border-gray-200">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <p class="text-gray-500">&copy; 2025 Impact Mechanica. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Visit our Twitter profile">Twitter</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Visit our Instagram profile">Instagram</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors" aria-label="Visit our LinkedIn profile">LinkedIn</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Visit our Twitter profile">Twitter</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Visit our Instagram profile">Instagram</a>
+                    <a href="#" class="text-gray-500 hover:text-gray-900 transition-colors" aria-label="Visit our LinkedIn profile">LinkedIn</a>
                 </div>
             </div>
         </div>
