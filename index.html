@@ -69,7 +69,7 @@
                         <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
                                            0 1 0 0 0
                                            0 0 1 0 0
-                                           0 0 0 255 -140" />
+                                           0 0 0 60 -30" />
                     </filter>
                 </defs>
             </svg>
@@ -103,25 +103,11 @@
             <!-- Hero Section -->
             <section id="home" class="h-screen min-h-[700px] flex flex-col items-center justify-center text-center pt-20">
                 <div class="container mx-auto px-6">
-                    <!-- Gooey Hero Text -->
-                    <div class="relative w-full h-48">
-                        <svg class="absolute h-0 w-0" aria-hidden="true" focusable="false">
-                            <defs>
-                                <filter id="hero-threshold">
-                                    <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
-                                                       0 1 0 0 0
-                                                       0 0 1 0 0
-                                                       0 0 0 255 -140" />
-                                </filter>
-                            </defs>
-                        </svg>
-                        <div class="flex items-center justify-center h-full" style="filter: url(#hero-threshold)">
-                            <span id="hero-text1" class="absolute inline-block select-none text-center text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight text-purple-400"></span>
-                            <span id="hero-text2" class="absolute inline-block select-none text-center text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight text-purple-400"></span>
-                        </div>
-                    </div>
+                    <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight max-w-4xl mx-auto">
+                        The First <span class="text-purple-400">Digitally Manufactured</span> Rugby Head Guard
+                    </h1>
                     
-                    <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-slate-600">
+                    <p class="mt-8 max-w-2xl mx-auto text-lg md:text-xl text-slate-600">
                         The V1 Head Guard is the first hyper-personalized protective system, engineered from your unique 3D scan to deliver a level of performance and safety previously thought impossible.
                     </p>
                     <div class="mt-10">
@@ -297,7 +283,7 @@
                 text2: document.getElementById("text2")
             };
 
-            const texts = ["The Future of Protection", "is Personal."];
+            const texts = ["The Future of Rugby Protection", "is Personal."];
             const morphTime = 1;
             const cooldownTime = 0.25;
 
@@ -377,66 +363,6 @@
 
             animate();
             
-            // --- HERO TEXT ANIMATION ---
-            const heroElts = {
-                text1: document.getElementById("hero-text1"),
-                text2: document.getElementById("hero-text2")
-            };
-
-            const heroTexts = ["The Future of Protection", "is Personal."];
-            const heroMorphTime = 1;
-            const heroCooldownTime = 0.75;
-
-            let heroTextIndex = heroTexts.length - 1;
-            let heroTime = new Date();
-            let heroMorph = 0;
-            let heroCooldown = heroCooldownTime;
-
-            heroElts.text1.textContent = heroTexts[heroTextIndex % heroTexts.length];
-            heroElts.text2.textContent = heroTexts[(heroTextIndex + 1) % heroTexts.length];
-
-            function heroAnimate() {
-                requestAnimationFrame(heroAnimate);
-
-                let newTime = new Date();
-                let shouldIncrementIndex = heroCooldown > 0;
-                let dt = (newTime - heroTime) / 1000;
-                heroTime = newTime;
-
-                heroCooldown -= dt;
-
-                if (heroCooldown <= 0) {
-                    if (shouldIncrementIndex) {
-                        heroTextIndex = (heroTextIndex + 1) % heroTexts.length;
-                        heroElts.text1.textContent = heroTexts[heroTextIndex % heroTexts.length];
-                        heroElts.text2.textContent = heroTexts[(heroTextIndex + 1) % heroTexts.length];
-                    }
-                    
-                    heroMorph -= heroCooldown;
-                    heroCooldown = 0;
-                    let fraction = heroMorph / heroMorphTime;
-                    if (fraction > 1) {
-                        heroCooldown = heroCooldownTime;
-                        fraction = 1;
-                    }
-                    
-                    // Set Morph
-                    let f = 1 - fraction;
-                    heroElts.text1.style.filter = `blur(${Math.min(8 / f - 8, 100)}px)`;
-                    heroElts.text1.style.opacity = `${Math.pow(f, 0.4) * 100}%`;
-                    heroElts.text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
-                    heroElts.text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
-
-                } else {
-                    // Do Cooldown
-                    heroMorph = 0;
-                    heroElts.text2.style.filter = "";
-                    heroElts.text2.style.opacity = "100%";
-                    heroElts.text1.style.filter = "";
-                    heroElts.text1.style.opacity = "0%";
-                }
-            }
-            
             // Hide loading screen and show main content
             setTimeout(() => {
                 if (loadingScreen) {
@@ -447,8 +373,6 @@
                 }
                 if (mainContent) {
                    mainContent.classList.remove('opacity-0');
-                   // Start the hero animation only after the main content is visible
-                   heroAnimate();
                 }
             }, 3500); // Adjust time as needed
         });
@@ -456,4 +380,5 @@
 
 </body>
 </html>
+
 
