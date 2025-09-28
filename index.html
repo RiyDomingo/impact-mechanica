@@ -11,8 +11,8 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #1E1B4B; /* Deep Indigo */
-            color: #E0E7FF; /* Lavender White */
+            background-color: #161320; /* Wakanda Dark Purple */
+            color: #F4F0F9; /* Soft Lavender White */
         }
         .gooey-filter {
             filter: url(#threshold);
@@ -30,7 +30,7 @@
             transform: translateX(-50%);
             width: 80%;
             height: 200px;
-            background: radial-gradient(circle, rgba(217, 70, 239, 0.15) 0%, rgba(217, 70, 239, 0) 70%); /* Magenta Glow */
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.15) 0%, rgba(168, 85, 247, 0) 70%); /* Purple Glow */
             pointer-events: none;
         }
         .founder-quote {
@@ -42,7 +42,7 @@
 <body class="antialiased">
 
     <!-- Gooey Text Loading Screen -->
-    <div id="loading-screen" class="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-indigo-950 transition-opacity duration-500">
+    <div id="loading-screen" class="fixed inset-0 z-50 flex h-screen w-screen items-center justify-center bg-[#161320] transition-opacity duration-500">
         <div class="relative w-full max-w-lg h-48">
             <svg class="absolute h-0 w-0" aria-hidden="true" focusable="false">
                 <defs>
@@ -64,16 +64,16 @@
     <!-- Main Content -->
     <div id="main-content" class="opacity-0 transition-opacity duration-500">
         <!-- Header -->
-        <header class="fixed top-0 left-0 right-0 z-40 bg-indigo-950/50 backdrop-blur-sm">
+        <header class="fixed top-0 left-0 right-0 z-40 bg-[#161320]/50 backdrop-blur-sm">
             <div class="container mx-auto px-6 py-4">
                 <nav class="flex justify-between items-center">
                     <h1 class="text-xl font-bold tracking-tighter">Impact Mechanica</h1>
                     <div class="hidden md:flex space-x-8">
-                        <a href="#technology" class="hover:text-fuchsia-400 transition-colors">Technology</a>
-                        <a href="#roadmap" class="hover:text-fuchsia-400 transition-colors">Roadmap</a>
-                        <a href="#mission" class="hover:text-fuchsia-400 transition-colors">Mission</a>
+                        <a href="#technology" class="hover:text-purple-400 transition-colors">Technology</a>
+                        <a href="#roadmap" class="hover:text-purple-400 transition-colors">Roadmap</a>
+                        <a href="#mission" class="hover:text-purple-400 transition-colors">Mission</a>
                     </div>
-                    <a href="#early-access" class="bg-fuchsia-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-fuchsia-600 transition-colors">
+                    <a href="#early-access" class="bg-purple-500 text-white px-4 py-2 rounded-md font-semibold hover:bg-purple-600 transition-colors">
                         Apply to Join
                     </a>
                 </nav>
@@ -85,19 +85,19 @@
             <section id="home" class="h-screen min-h-[700px] flex items-center justify-center text-center pt-20">
                 <div class="container mx-auto px-6">
                     <h2 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
-                        The Future of Protection<br>is <span class="text-fuchsia-400">Personal.</span>
+                        The Future of Protection<br>is <span class="text-purple-400">Personal.</span>
                     </h2>
-                    <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-indigo-200">
+                    <p class="mt-6 max-w-2xl mx-auto text-lg md:text-xl text-[#A096B5]">
                         The V1 Head Guard is the first hyper-personalized protective system, engineered from your unique 3D scan to deliver a level of performance and safety previously thought impossible.
                     </p>
                     <div class="mt-10">
-                        <a href="#early-access" class="bg-fuchsia-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-fuchsia-600 transition-transform hover:scale-105 transform">
+                        <a href="#early-access" class="bg-purple-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-purple-600 transition-transform hover:scale-105 transform">
                             Apply for the Founder's Program
                         </a>
                     </div>
                     <div class="mt-12 flex justify-center items-center space-x-3">
-                        <p class="text-sm text-indigo-300 tracking-widest uppercase">A Harvard Innovation Labs Venture</p>
-                         <img src="https://placehold.co/150x40/1E1B4B/FFFFFF?text=i-Labs+Logo" alt="Harvard Innovation Labs Logo" class="h-8 w-auto">
+                        <p class="text-sm text-[#A096B5] tracking-widest uppercase">A Harvard Innovation Labs Venture</p>
+                         <img src="https://placehold.co/150x40/161320/F4F0F9?text=i-Labs+Logo" alt="Harvard Innovation Labs Logo" class="h-8 w-auto">
                     </div>
                 </div>
             </section>
@@ -107,12 +107,12 @@
                 <div class="grid md:grid-cols-2 gap-12 items-center">
                     <div class="text-center md:text-left">
                         <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Brute Force vs. Intelligence.</h3>
-                        <p class="mt-4 text-indigo-200 text-lg">
+                        <p class="mt-4 text-[#A096B5] text-lg">
                             Every "one-size-fits-all" product is a compromise. With rugby's governing bodies facing lawsuits from over 1,100 former players, the need for a smarter, data-driven solution has never been more urgent.
                         </p>
                     </div>
-                    <div class="bg-indigo-900/50 rounded-lg overflow-hidden aspect-video">
-                        <video playsinline autoplay muted loop class="w-full h-full object-cover" poster="https://placehold.co/1600x900/312E81/9CA3AF?text=Printing+Process">
+                    <div class="bg-black/20 rounded-lg overflow-hidden aspect-video">
+                        <video playsinline autoplay muted loop class="w-full h-full object-cover" poster="https://placehold.co/1600x900/2A2438/9CA3AF?text=Printing+Process">
                             <!-- Video courtesy of Carbon, Inc. -->
                             <source src="https://www.carbon3d.com/wp-content/uploads/2022/01/Riddell_Helmet_H264.mp4" type="video/mp4">
                             Your browser does not support the video tag.
@@ -124,7 +124,7 @@
             <!-- Technology Section -->
             <section id="technology" class="py-20 md:py-32 container mx-auto px-6 text-center section-glow">
                 <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Your Personal Protection Blueprint.</h3>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-indigo-200">
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-[#A096B5]">
                     Our AI analyzes your 3D scan to identify unique contours and high-risk areas, allowing us to generate a lattice structure that is intelligently tuned—denser where you need it most, and lighter where you don't.
                 </p>
                 <div class="mt-16">
@@ -132,17 +132,17 @@
                 </div>
 
                 <div class="mt-24 grid md:grid-cols-3 gap-10 text-left">
-                    <div class="bg-indigo-900/40 p-6 rounded-lg border border-white/10">
-                        <h4 class="text-xl font-bold text-fuchsia-400">Kintura™ Scan</h4>
-                        <p class="mt-2 text-indigo-200">Our proprietary iOS app uses your iPhone's TrueDepth camera to create a sub-millimeter accurate 3D map of your anatomy.</p>
+                    <div class="bg-[#2A2438]/70 p-6 rounded-lg border border-white/10">
+                        <h4 class="text-xl font-bold text-purple-400">Kintura™ Scan</h4>
+                        <p class="mt-2 text-[#A096B5]">Our proprietary iOS app uses your iPhone's TrueDepth camera to create a sub-millimeter accurate 3D map of your anatomy.</p>
                     </div>
-                    <div class="bg-indigo-900/40 p-6 rounded-lg border border-white/10">
-                        <h4 class="text-xl font-bold text-fuchsia-400">Generative AI Core</h4>
-                        <p class="mt-2 text-indigo-200">Our AI analyzes your unique scan to generate a bespoke impact-absorbing lattice, tuned for optimal performance.</p>
+                    <div class="bg-[#2A2438]/70 p-6 rounded-lg border border-white/10">
+                        <h4 class="text-xl font-bold text-purple-400">Generative AI Core</h4>
+                        <p class="mt-2 text-[#A096B5]">Our AI analyzes your unique scan to generate a bespoke impact-absorbing lattice, tuned for optimal performance.</p>
                     </div>
-                    <div class="bg-indigo-900/40 p-6 rounded-lg border border-white/10">
-                        <h4 class="text-xl font-bold text-fuchsia-400">Carbon® DLS™ Manufacturing</h4>
-                        <p class="mt-2 text-indigo-200">Your V1 is then forged using industry-leading Digital Light Synthesis, ensuring unparalleled precision and material quality.</p>
+                    <div class="bg-[#2A2438]/70 p-6 rounded-lg border border-white/10">
+                        <h4 class="text-xl font-bold text-purple-400">Carbon® DLS™ Manufacturing</h4>
+                        <p class="mt-2 text-[#A096B5]">Your V1 is then forged using industry-leading Digital Light Synthesis, ensuring unparalleled precision and material quality.</p>
                     </div>
                 </div>
             </section>
@@ -150,36 +150,36 @@
             <!-- Roadmap Section -->
             <section id="roadmap" class="py-20 md:py-32 container mx-auto px-6 text-center section-glow">
                 <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">From Prototype to Pitch-Ready.</h3>
-                <p class="mt-4 max-w-3xl mx-auto text-lg text-indigo-200">
+                <p class="mt-4 max-w-3xl mx-auto text-lg text-[#A096B5]">
                     Our path to setting a new standard in protection is clear, transparent, and driven by data at every stage.
                 </p>
                 <div class="mt-16 max-w-5xl mx-auto relative">
-                     <div class="absolute top-1/2 left-0 w-full h-0.5 bg-indigo-800 -translate-y-1/2 hidden md:block"></div>
-                     <div class="absolute top-1/2 left-0 w-1/4 h-0.5 bg-fuchsia-500 -translate-y-1/2 hidden md:block"></div>
+                     <div class="absolute top-1/2 left-0 w-full h-0.5 bg-[#2A2438] -translate-y-1/2 hidden md:block"></div>
+                     <div class="absolute top-1/2 left-0 w-1/4 h-0.5 bg-purple-500 -translate-y-1/2 hidden md:block"></div>
                      <div class="grid md:grid-cols-4 gap-8 text-left relative">
                          <div class="p-4">
-                            <div class="w-4 h-4 bg-fuchsia-500 rounded-full mb-4 border-4 border-indigo-950"></div>
+                            <div class="w-4 h-4 bg-purple-500 rounded-full mb-4 border-4 border-[#161320]"></div>
                              <h4 class="font-bold">STAGE 1</h4>
                              <p class="text-lg font-semibold">Prototyping</p>
-                             <p class="text-sm text-indigo-300">Currently developing at Harvard i-Labs and Stanford's manufacturing facilities.</p>
+                             <p class="text-sm text-[#A096B5]">Currently developing at Harvard i-Labs and Stanford's manufacturing facilities.</p>
                          </div>
                          <div class="p-4">
-                            <div class="w-4 h-4 bg-indigo-800 rounded-full mb-4 border-4 border-indigo-950"></div>
+                            <div class="w-4 h-4 bg-[#2A2438] rounded-full mb-4 border-4 border-[#161320]"></div>
                              <h4 class="font-bold">STAGE 2</h4>
                              <p class="text-lg font-semibold">Pilot Program</p>
-                             <p class="text-sm text-indigo-300">Gathering on-field data with elite athletes and founding members.</p>
+                             <p class="text-sm text-[#A096B5]">Gathering on-field data with elite athletes and founding members.</p>
                          </div>
                          <div class="p-4">
-                            <div class="w-4 h-4 bg-indigo-800 rounded-full mb-4 border-4 border-indigo-950"></div>
+                            <div class="w-4 h-4 bg-[#2A2438] rounded-full mb-4 border-4 border-[#161320]"></div>
                              <h4 class="font-bold">STAGE 3</h4>
                              <p class="text-lg font-semibold">Certification</p>
-                             <p class="text-sm text-indigo-300">Independent lab testing for World Rugby compliance and safety validation.</p>
+                             <p class="text-sm text-[#A096B5]">Independent lab testing for World Rugby compliance and safety validation.</p>
                          </div>
                          <div class="p-4">
-                            <div class="w-4 h-4 bg-indigo-800 rounded-full mb-4 border-4 border-indigo-950"></div>
+                            <div class="w-4 h-4 bg-[#2A2438] rounded-full mb-4 border-4 border-[#161320]"></div>
                              <h4 class="font-bold">STAGE 4</h4>
                              <p class="text-lg font-semibold">Commercial Launch</p>
-                             <p class="text-sm text-indigo-300">Bringing the V1 to the global rugby community.</p>
+                             <p class="text-sm text-[#A096B5]">Bringing the V1 to the global rugby community.</p>
                          </div>
                      </div>
                 </div>
@@ -188,13 +188,13 @@
              <!-- Compliance and Safety Section -->
             <section class="py-20 md:py-32 container mx-auto px-6">
                 <div class="grid md:grid-cols-2 gap-10">
-                    <div class="bg-indigo-900/40 p-8 rounded-lg border border-white/10">
+                    <div class="bg-[#2A2438]/70 p-8 rounded-lg border border-white/10">
                         <h4 class="text-2xl font-bold">Engineered for World Rugby Compliance</h4>
-                        <p class="mt-3 text-indigo-200">The V1 Head Guard is engineered in alignment with World Rugby Regulation 12, ensuring it's ready for testing and validation at all levels of the game.</p>
+                        <p class="mt-3 text-[#A096B5]">The V1 Head Guard is engineered in alignment with World Rugby Regulation 12, ensuring it's ready for testing and validation at all levels of the game.</p>
                     </div>
-                     <div class="bg-indigo-900/40 p-8 rounded-lg border border-white/10">
+                     <div class="bg-[#2A2438]/70 p-8 rounded-lg border border-white/10">
                         <h4 class="text-2xl font-bold">Designed for CTE Protection</h4>
-                        <p class="mt-3 text-indigo-200">Our intelligent lattice is specifically designed to manage the rotational and linear impact forces associated with concussions and long-term brain health.</p>
+                        <p class="mt-3 text-[#A096B5]">Our intelligent lattice is specifically designed to manage the rotational and linear impact forces associated with concussions and long-term brain health.</p>
                     </div>
                 </div>
             </section>
@@ -204,13 +204,13 @@
             <section id="mission" class="py-20 md:py-32 section-glow">
                 <div class="container mx-auto px-6">
                     <div class="founder-quote p-10 md:p-16 rounded-2xl max-w-4xl mx-auto text-center">
-                         <img src="https://placehold.co/100x100/312E81/FFFFFF?text=CD" alt="Dr. Cherise Dunn" class="w-24 h-24 rounded-full mx-auto -mt-20 md:-mt-28 mb-6 border-4 border-indigo-950">
+                         <img src="https://placehold.co/100x100/2A2438/FFFFFF?text=CD" alt="Dr. Cherise Dunn" class="w-24 h-24 rounded-full mx-auto -mt-20 md:-mt-28 mb-6 border-4 border-[#161320]">
                         <blockquote class="text-xl md:text-2xl font-medium">
                             "The age of generic equipment is ending. My journey from Harvard's School of Public Health to the engineering labs at Stanford was driven by a single vision: a future where an athlete's gear is as unique as their own biology."
                         </blockquote>
                         <footer class="mt-6">
                             <p class="font-bold">Dr. Cherise Dunn, PhD, MPH (Harvard)</p>
-                            <p class="text-indigo-300">Founder, Impact Mechanica</p>
+                            <p class="text-[#A096B5]">Founder, Impact Mechanica</p>
                         </footer>
                     </div>
                 </div>
@@ -220,11 +220,11 @@
             <section id="early-access" class="py-20 md:py-32 text-center">
                 <div class="container mx-auto px-6">
                     <h3 class="text-4xl md:text-5xl font-bold tracking-tighter">Become an Impact Mechanica Founder.</h3>
-                    <p class="mt-4 max-w-2xl mx-auto text-lg text-indigo-200">
+                    <p class="mt-4 max-w-2xl mx-auto text-lg text-[#A096B5]">
                        Join our exclusive Founder's Program. Be one of the first athletes in the world to experience the V1 and help shape the future of protection.
                     </p>
                     <div class="mt-10">
-                        <a href="#" class="bg-fuchsia-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-fuchsia-600 transition-transform hover:scale-105 transform">
+                        <a href="#" class="bg-purple-500 text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-purple-600 transition-transform hover:scale-105 transform">
                            Apply to Join
                         </a>
                     </div>
@@ -236,15 +236,15 @@
         <!-- Footer -->
         <footer class="py-8 border-t border-white/10">
             <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-center md:text-left">
-                <p class="text-indigo-300 text-sm">&copy; 2025 Impact Mechanica. All rights reserved.</p>
+                <p class="text-[#A096B5] text-sm">&copy; 2025 Impact Mechanica. All rights reserved.</p>
                 <div class="flex space-x-6 mt-4 md:mt-0">
-                    <a href="#" class="text-indigo-300 hover:text-white">
+                    <a href="#" class="text-[#A096B5] hover:text-white">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.71v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"/></svg>
                     </a>
-                     <a href="#" class="text-indigo-300 hover:text-white">
+                     <a href="#" class="text-[#A096B5] hover:text-white">
                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.345 4.22c.636-.247 1.363.416 2.427.465C9.793 2.013 10.147 2 12.315 2zm0 1.623c-2.387 0-2.673.01-3.616.055-1.149.052-1.645.248-2.022.42-1.111.478-1.652 1.123-2.128 2.128-.173.377-.368.873-.42 2.022-.045.943-.055 1.229-.055 3.616s.01 2.673.055 3.616c.052 1.149.248 1.645.42 2.022.478 1.111 1.123 1.652 2.128 2.128.377.173.873.368 2.022.42.943.045 1.229.055 3.616.055s2.673-.01 3.616-.055c1.149-.052 1.645-.248 2.022-.42 1.111-.478 1.652-1.123 2.128-2.128.173-.377.368-.873.42-2.022.045-.943-.055-1.229-.055-3.616s.01-2.673.055-3.616c.052-1.149.248-1.645.42-2.022-.478-1.111-1.123-1.652-2.128-2.128-.377-.173-.873-.368-2.022-.42-.943-.045-1.229-.055-3.616-.055zM12 8.118a4.102 4.102 0 100 8.204 4.102 4.102 0 000-8.204zm0 6.579a2.477 2.477 0 110-4.955 2.477 2.477 0 010 4.955zM17.636 6.364a.96.96 0 11-1.92 0 .96.96 0 011.92 0z" clip-rule="evenodd" /></svg>
                     </a>
-                     <a href="#" class="text-indigo-300 hover:text-white">
+                     <a href="#" class="text-[#A096B5] hover:text-white">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     </a>
                 </div>
@@ -271,6 +271,7 @@
             let time = new Date();
             let morph = 0;
             let cooldown = cooldownTime;
+            let animationFrameId;
 
             elts.text1.textContent = texts[textIndex % texts.length];
             elts.text2.textContent = texts[(textIndex + 1) % texts.length];
@@ -308,7 +309,7 @@
             }
 
             function animate() {
-                requestAnimationFrame(animate);
+                animationFrameId = requestAnimationFrame(animate);
 
                 let newTime = new Date();
                 let shouldIncrementIndex = cooldown > 0;
@@ -320,6 +321,16 @@
                 if (cooldown <= 0) {
                     if (shouldIncrementIndex) {
                         textIndex++;
+
+                        if (textIndex >= texts.length + 1) {
+                            cancelAnimationFrame(animationFrameId);
+                            elts.text1.style.opacity = '0%';
+                            elts.text2.textContent = texts[texts.length - 1];
+                            elts.text2.style.filter = '';
+                            elts.text2.style.opacity = '100%';
+                            return;
+                        }
+
                         elts.text1.textContent = texts[textIndex % texts.length];
                         elts.text2.textContent = texts[(textIndex + 1) % texts.length];
                     }
@@ -348,5 +359,4 @@
 
 </body>
 </html>
-
 
