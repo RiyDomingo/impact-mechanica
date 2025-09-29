@@ -89,9 +89,10 @@
             <h1 class="text-2xl font-black tracking-tighter text-white">IMPACT<span class="text-brand-purple">.</span>M</h1>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#problem" class="text-slate-300 hover:text-brand-purple transition-colors">The Crisis</a>
+                <a href="#how-it-works" class="text-slate-300 hover:text-brand-purple transition-colors">How It Works</a>
                 <a href="#paradigm" class="text-slate-300 hover:text-brand-purple transition-colors">Technology</a>
+                <a href="#features" class="text-slate-300 hover:text-brand-purple transition-colors">Features</a>
                 <a href="#roadmap" class="text-slate-300 hover:text-brand-purple transition-colors">Roadmap</a>
-                <a href="#mission" class="text-slate-300 hover:text-brand-purple transition-colors">Our Mission</a>
             </nav>
             <a href="#early-access" class="bg-brand-purple text-white font-bold px-6 py-2 rounded-lg hover:bg-brand-purple-dark transition-all hover:scale-105 shadow-lg" style="box-shadow: 0 4px 14px 0 rgba(112, 48, 160, 0.39);">
                 Join Waitlist
@@ -171,7 +172,7 @@
             </div>
         </section>
         <!-- How It Works Section -->
-        <section class="py-20 sm:py-32 bg-neutral-900/50">
+        <section id="how-it-works" class="py-20 sm:py-32 bg-neutral-900/50">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
                     <h3 class="text-sm font-bold uppercase text-brand-purple tracking-widest">The Valkyrie System</h3>
@@ -208,9 +209,9 @@
         <!-- A New Paradigm Section -->
         <section id="paradigm" class="py-20 sm-py-32">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="grid md:grid-cols-2 gap-8 items-center">
                      <div class="space-y-8 animate-on-scroll">
-                         <video class="w-full h-auto rounded-xl border-2 border-neutral-700" autoplay loop muted playsinline>
+                         <video class="w-full h-auto rounded-xl border-2 border-neutral-700" autoplay loop muted playsinline loading="lazy">
                             <source src="assets/epu45-vs-commercial-foam-impact-hit.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                          </video>
@@ -309,7 +310,7 @@
         <!-- Mission & Founder Section -->
         <section id="mission" class="py-20 sm:py-32 bg-neutral-900/50">
             <div class="container mx-auto px-6">
-                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center animate-on-scroll">
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center animate-on-scroll">
                     <div>
                         <h3 class="text-sm font-bold uppercase text-brand-purple tracking-widest">Our Mission</h3>
                         <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mt-2">Built on science. Backed by innovation.</h2>
@@ -321,13 +322,13 @@
                             <p class="text-sm text-slate-400">Founder, Impact Mechanica</p>
                         </div>
                          <div class="mt-8 pt-6 border-t border-neutral-700 flex flex-wrap items-center gap-x-8 gap-y-4">
-                             <img src="assets/Harvard Innovation Labs Logo 1.png" alt="Harvard Innovation Labs" class="h-12 opacity-80" />
-                             <img src="assets/carbon_mark_white.svg" alt="Carbon 3D Logo" class="h-8 opacity-90" />
+                             <img src="assets/Harvard Innovation Labs Logo 1.png" alt="Harvard Innovation Labs" class="h-12 opacity-80" loading="lazy"/>
+                             <img src="assets/carbon_mark_white.svg" alt="Carbon 3D Logo" class="h-8 opacity-90" loading="lazy"/>
                              <p class="font-semibold text-slate-300">Stanford Additive Manufacturing</p>
                         </div>
                     </div>
                     <div class="rounded-2xl border-2 border-neutral-700 p-2">
-                        <img src="https://placehold.co/600x700/171717/7030A0?text=Founder+Photo" alt="Founder portrait of Dr. Cherise Dunn" class="w-full h-auto rounded-xl object-cover" />
+                        <img src="https://placehold.co/600x700/171717/7030A0?text=Founder+Photo" alt="Founder portrait of Dr. Cherise Dunn" class="w-full h-auto rounded-xl object-cover" loading="lazy"/>
                     </div>
                 </div>
             </div>
@@ -370,23 +371,23 @@
         <!-- Early Access CTA Section -->
         <section id="early-access" class="py-20 sm:py-32 bg-neutral-900/50">
             <div class="container mx-auto px-6 text-center">
-                <div class="max-w-3xl mx-auto animate-on-scroll">
+                <div id="form-container" class="max-w-3xl mx-auto animate-on-scroll">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter">Be part of the future of rugby protection.</h2>
                     <p class="text-slate-300 mt-4 text-lg leading-relaxed">Sign up for early updates, pilot invitations, and launch details. Pilot program spots are limited.</p>
-                    <form action="#" method="post" class="mt-8 max-w-lg mx-auto" aria-label="Join the waitlist form">
+                    <form id="waitlist-form" action="#" method="post" class="mt-8 max-w-lg mx-auto" aria-label="Join the waitlist form">
                         <div class="grid gap-4 sm:grid-cols-2">
                              <label class="sr-only" for="name">Name</label>
                              <input id="name" name="name" type="text" required placeholder="Full name" class="w-full px-5 py-4 rounded-lg bg-neutral-800 border-2 border-neutral-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-brand-purple transition" />
                              <label class="sr-only" for="email">Email</label>
                              <input id="email" name="email" type="email" required placeholder="Email address" class="w-full px-5 py-4 rounded-lg bg-neutral-800 border-2 border-neutral-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-brand-purple transition" />
                         </div>
-                        <div class="sm:col-span-2 grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-neutral-300 mt-4 text-left px-2">
+                        <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm text-neutral-300 mt-4 text-left px-2">
                              <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Athlete" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Athlete</label>
                              <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Parent" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Parent</label>
                              <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Coach" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Coach</label>
                              <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Club" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Club</label>
                         </div>
-                         <button type="submit" class="w-full mt-6 bg-brand-purple text-white font-bold px-8 py-4 rounded-lg hover:bg-brand-purple-dark transition-transform hover:scale-105" style="box-shadow: 0 10px 30px rgba(112, 48, 160, 0.4);">
+                         <button id="submit-button" type="submit" class="w-full mt-6 bg-brand-purple text-white font-bold px-8 py-4 rounded-lg hover:bg-brand-purple-dark transition-transform hover:scale-105" style="box-shadow: 0 10px 30px rgba(112, 48, 160, 0.4);">
                             Join the Waitlist
                         </button>
                     </form>
@@ -437,6 +438,32 @@
             }
             window.addEventListener('scroll', handleScrollAnimation);
             handleScrollAnimation(); // Initial check
+        });
+
+        // --- Form Submission Feedback Script ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const waitlistForm = document.getElementById('waitlist-form');
+            if (waitlistForm) {
+                waitlistForm.addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent default form submission
+                    
+                    const submitButton = document.getElementById('submit-button');
+                    const formContainer = document.getElementById('form-container');
+
+                    // Disable button and show loading state
+                    submitButton.disabled = true;
+                    submitButton.textContent = 'Submitting...';
+
+                    // Simulate a network request
+                    setTimeout(() => {
+                        // On success, show a thank you message
+                        formContainer.innerHTML = `
+                            <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-brand-purple">Thank You!</h2>
+                            <p class="text-slate-300 mt-4 text-lg leading-relaxed">You're on the list. We'll be in touch with updates about the pilot program and official launch.</p>
+                        `;
+                    }, 1500);
+                });
+            }
         });
     </script>
 </body>
