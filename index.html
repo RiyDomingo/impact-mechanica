@@ -28,39 +28,34 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #171717; /* neutral-900 */
-            color: #E2E8F0; /* slate-200 */
+            background-color: #111827; /* Deep Slate */
+            color: #F9FAFB; /* Off-White */
         }
         .header-bg {
-            background-color: rgba(23, 23, 23, 0.8);
+            background-color: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
         }
         .hero-glow {
-            /* Updated to use new RGB values from #7030A0 */
             box-shadow: 0 0 100px 30px rgba(112, 48, 160, 0.3);
         }
-        .feature-card, .stat-card, .roadmap-card {
-            background: linear-gradient(145deg, rgba(38, 38, 38, 0.5), rgba(23, 23, 23, 0.5));
-            border: 1px solid #404040; /* neutral-700 */
+        .feature-card, .stat-card, .faq-item {
+            background-color: #374151; /* Cool Gray */
+            border: 1px solid #4b5563; 
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .feature-card:hover, .stat-card:hover, .roadmap-card:hover {
+        .feature-card:hover, .stat-card:hover, .faq-item:hover {
             transform: translateY(-8px);
-            /* Updated to use new RGB values */
             box-shadow: 0 10px 30px rgba(112, 48, 160, 0.2);
         }
-        .step-number {
-             border-color: #525252; /* neutral-600 */
-        }
-        .bg-grid-neutral-800 {
+        .bg-grid-gray-800 {
             background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.1;
         }
         model-viewer {
             width: 100%;
-            height: 540px; /* Adjust height as needed */
+            height: 600px; /* Adjust height as needed */
         }
         /* Styles for scroll animations */
         .animate-on-scroll {
@@ -88,11 +83,10 @@
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-2xl font-black tracking-tighter text-white">IMPACT<span class="text-brand-purple">.</span>M</h1>
             <nav class="hidden md:flex items-center space-x-8">
-                <a href="#problem" class="text-slate-300 hover:text-brand-purple transition-colors">The Crisis</a>
-                <a href="#how-it-works" class="text-slate-300 hover:text-brand-purple transition-colors">How It Works</a>
-                <a href="#paradigm" class="text-slate-300 hover:text-brand-purple transition-colors">Technology</a>
-                <a href="#features" class="text-slate-300 hover:text-brand-purple transition-colors">Features</a>
-                <a href="#roadmap" class="text-slate-300 hover:text-brand-purple transition-colors">Roadmap</a>
+                <a href="#problem" class="text-slate-400 hover:text-brand-purple transition-colors">The Crisis</a>
+                <a href="#how-it-works" class="text-slate-400 hover:text-brand-purple transition-colors">How It Works</a>
+                <a href="#paradigm" class="text-slate-400 hover:text-brand-purple transition-colors">Technology</a>
+                <a href="#features" class="text-slate-400 hover:text-brand-purple transition-colors">Features</a>
             </nav>
             <a href="#early-access" class="bg-brand-purple text-white font-bold px-6 py-2 rounded-lg hover:bg-brand-purple-dark transition-all hover:scale-105 shadow-lg" style="box-shadow: 0 4px 14px 0 rgba(112, 48, 160, 0.39);">
                 Join Waitlist
@@ -101,44 +95,48 @@
     </header>
     <main>
         <!-- Hero Section -->
-        <section class="relative min-h-screen flex items-center justify-center text-center pt-24 pb-12 overflow-hidden">
-             <div class="absolute inset-0 bg-grid-neutral-800 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
-             <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
+        <section class="relative min-h-screen flex items-center pt-24 pb-12 overflow-hidden">
+             <div class="absolute inset-0 bg-grid-gray-800 [mask-image:linear-gradient(to_bottom,white_5%,transparent_80%)]"></div>
+             <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
             <div class="container mx-auto px-6 relative z-10">
-                <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-4">
-                    <span class="text-brand-purple">Protection Perfected:</span>
-                    <span class="block text-2xl md:text-4xl lg:text-5xl text-slate-200 font-bold mt-4">The First Digitally Manufactured Rugby Head Guard.</span>
-                </h2>
-                <p class="max-w-3xl mx-auto text-lg md:text-xl text-slate-300 mb-8">
-                   Custom-fit protection using iPhone 3D scanning, AI lattice design, and additive manufacturing — addressing rugby’s concussion challenge head‑on.
-                </p>
-                <div class="my-10">
-                    <model-viewer 
-                         src="assets/Scrum Cap v1.1.glb"
-                         ios-src="assets/Scrum Cap v1.1.usdz"
-                         alt="A 3D model of the Impact Mechanica Valkyrie Head Guard V1"
-                         ar
-                         auto-rotate
-                         rotation-per-second="15deg"
-                         camera-controls
-                         camera-orbit="0deg 75deg 105%"
-                         shadow-intensity="0.5"
-                         exposure="3.0"
-                         tone-mapping="commerce"
-                         style="--mv-progress-bar-color: #7030A0; --model-viewer-background-color: #FFFFFF;"
-                         class="w-full max-w-4xl mx-auto rounded-2xl border-2 border-neutral-700 hero-glow">
-                    </model-viewer>
+                <div class="grid md:grid-cols-5 gap-8 items-center">
+                    <div class="md:col-span-2 text-center md:text-left">
+                        <h2 class="text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-tight mb-4">
+                            <span class="text-brand-purple">Protection Perfected:</span>
+                            <span class="block text-2xl md:text-4xl lg:text-5xl text-slate-100 font-bold mt-4">The First Digitally Manufactured Rugby Head Guard.</span>
+                        </h2>
+                        <p class="max-w-xl mx-auto md:mx-0 text-lg md:text-xl text-slate-400 mb-8">
+                           Custom-fit protection using iPhone 3D scanning, AI lattice design, and additive manufacturing — addressing rugby’s concussion challenge head‑on.
+                        </p>
+                        <div class="flex justify-center md:justify-start gap-4">
+                            <a href="#early-access" class="bg-brand-purple text-white font-bold px-8 py-4 rounded-lg hover:bg-brand-purple-dark transition-transform hover:scale-105" style="box-shadow: 0 10px 30px rgba(112, 48, 160, 0.4);">
+                                Join the Waitlist
+                            </a>
+                        </div>
+                         <p class="mt-6 text-sm text-slate-400">Pre‑seed stage • Prototypes in development • Not yet approved by World Rugby</p>
+                    </div>
+                    <div class="md:col-span-3">
+                         <model-viewer 
+                             src="assets/Scrum Cap v1.1.glb"
+                             ios-src="assets/Scrum Cap v1.1.usdz"
+                             alt="A 3D model of the Impact Mechanica Valkyrie Head Guard V1"
+                             ar
+                             auto-rotate
+                             rotation-per-second="15deg"
+                             camera-controls
+                             camera-orbit="0deg 75deg 105%"
+                             shadow-intensity="0.5"
+                             exposure="3.0"
+                             tone-mapping="commerce"
+                             style="--mv-progress-bar-color: #7030A0; --model-viewer-background-color: #FFFFFF;"
+                             class="w-full h-[500px] md:h-[600px] rounded-2xl border-2 border-slate-700 hero-glow">
+                        </model-viewer>
+                    </div>
                 </div>
-                <div class="flex justify-center gap-4">
-                    <a href="#early-access" class="bg-brand-purple text-white font-bold px-8 py-4 rounded-lg hover:bg-brand-purple-dark transition-transform hover:scale-105" style="box-shadow: 0 10px 30px rgba(112, 48, 160, 0.4);">
-                        Join the Waitlist
-                    </a>
-                </div>
-                 <p class="mt-6 text-sm text-neutral-400">Pre‑seed stage • Prototypes in development • Not yet approved by World Rugby</p>
             </div>
         </section>
         <!-- Harvard i-labs Section -->
-        <section class="py-12 bg-neutral-900/70">
+        <section class="py-12 bg-slate-900/70">
             <div class="container mx-auto px-6 text-center">
                 <div class="flex justify-center items-center gap-4 animate-on-scroll">
                     <p class="text-slate-400 font-semibold tracking-wider">A Harvard Innovation Labs Venture</p>
@@ -153,55 +151,67 @@
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter">
                         Rugby is facing a <span class="text-brand-purple">concussion crisis.</span>
                     </h2>
-                    <p class="text-slate-300 mt-6 text-lg">Head injuries are one of the sport’s biggest challenges — putting player safety, club reputations, and the future of rugby at risk.</p>
+                    <p class="text-slate-400 mt-6 text-lg">Head injuries are one of the sport’s biggest challenges — putting player safety, club reputations, and the future of rugby at risk.</p>
                 </div>
                 <div class="mt-12 grid gap-8 sm:grid-cols-3 max-w-5xl mx-auto animate-on-scroll">
                     <div class="stat-card rounded-2xl p-6">
                         <div class="text-5xl font-extrabold text-brand-purple">1 in 5</div>
-                        <p class="mt-2 text-sm text-neutral-300">rugby players report a concussion each season <span class="text-xs text-neutral-500 block">(World Rugby, 2023)</span></p>
+                        <p class="mt-2 text-sm text-slate-400">rugby players report a concussion each season <span class="text-xs text-slate-500 block">(World Rugby, 2023)</span></p>
                     </div>
                     <div class="stat-card rounded-2xl p-6">
                         <div class="text-5xl font-extrabold text-brand-purple">60%</div>
-                        <p class="mt-2 text-sm text-neutral-300">of concussions are under-reported by players <span class="text-xs text-neutral-500 block">(BMJ Sports Med)</span></p>
+                        <p class="mt-2 text-sm text-slate-400">of concussions are under-reported by players <span class="text-xs text-slate-500 block">(BMJ Sports Med)</span></p>
                     </div>
                     <div class="stat-card rounded-2xl p-6">
                         <div class="text-5xl font-extrabold text-brand-purple">2031</div>
-                        <p class="mt-2 text-sm text-neutral-300">U.S. Rugby World Cup will put safety equipment under global scrutiny</p>
+                        <p class="mt-2 text-sm text-slate-400">U.S. Rugby World Cup will put safety equipment under global scrutiny</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- How It Works Section -->
-        <section id="how-it-works" class="py-20 sm:py-32 bg-neutral-900/50">
+        <section id="how-it-works" class="py-20 sm:py-32 bg-slate-800/50">
             <div class="container mx-auto px-6">
                  <div class="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
                     <h3 class="text-sm font-bold uppercase text-brand-purple tracking-widest">The Valkyrie System</h3>
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mt-2">The Blueprint for Your Best Performance.</h2>
                 </div>
-                <div class="grid md:grid-cols-3 gap-8">
+                <div class="max-w-4xl mx-auto space-y-16">
                     <!-- Step 1: Map -->
-                    <div class="text-center p-8 rounded-xl feature-card animate-on-scroll">
-                        <svg class="w-16 h-16 mx-auto mb-6 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-5.571 3m-11.142 0L12 15.25l5.571-3m-5.571 0l-5.571 3L12 21.75l9.75-5.25-5.571-3m-5.571 3l5.571 3m-5.571-3l-5.571-3" />
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-2">Map Your Anatomy</h3>
-                        <p class="text-slate-300">Once you're invited, you'll use our proprietary Kintura™ App and your iPhone's TrueDepth camera to capture a flawless 3D scan—the essential digital blueprint.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center animate-on-scroll">
+                        <div class="text-center">
+                            <svg class="w-24 h-24 mx-auto mb-6 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-5.571 3m-11.142 0L12 15.25l5.571-3m-5.571 0l-5.571 3L12 21.75l9.75-5.25-5.571-3m-5.571 3l5.571 3m-5.571-3l-5.571-3" />
+                            </svg>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-3xl font-bold mb-2">1. Map Your Anatomy</h3>
+                            <p class="text-slate-400 text-lg">Once you're invited, you'll use our proprietary Kintura™ App and your iPhone's TrueDepth camera to capture a flawless 3D scan—the essential digital blueprint.</p>
+                        </div>
                     </div>
                     <!-- Step 2: Engineer -->
-                    <div class="text-center p-8 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
-                        <svg class="w-16 h-16 mx-auto mb-6 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" />
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-2">Engineer Your Advantage</h3>
-                        <p class="text-slate-300">From this blueprint, our generative AI engineers a bespoke impact-absorbing lattice—your personal protection matrix. No two are identical.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center animate-on-scroll">
+                        <div class="text-center md:order-last">
+                            <svg class="w-24 h-24 mx-auto mb-6 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5m0 15V21m-9-1.5h10.5a2.25 2.25 0 002.25-2.25V6.75a2.25 2.25 0 00-2.25-2.25H6.75A2.25 2.25 0 004.5 6.75v10.5a2.25 2.25 0 002.25 2.25z" />
+                            </svg>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-3xl font-bold mb-2">2. Engineer Your Advantage</h3>
+                            <p class="text-slate-400 text-lg">From this blueprint, our generative AI engineers a bespoke impact-absorbing lattice—your personal protection matrix. No two are identical.</p>
+                        </div>
                     </div>
                     <!-- Step 3: Unleash -->
-                    <div class="text-center p-8 rounded-xl feature-card animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
-                        <svg class="w-16 h-16 mx-auto mb-6 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56v4.82a6 6 0 01-1.82.32l-3.5-7L8.74 8.74l-7 3.5a6 6 0 012.83-5.84m2.56 5.84L8.74 8.74m0 0l3.5 7m-3.5-7l3.5-7m-3.5 7l-7 3.5a6 6 0 015.84-2.83m13.14 2.83l-7-3.5m7 3.5l-7 3.5a6 6 0 01-5.84-2.83m2.56 5.84l3.5-7m-3.5 7l-3.5-7" />
-                        </svg>
-                        <h3 class="text-2xl font-bold mb-2">Unleash Your Potential</h3>
-                        <p class="text-slate-300">Your custom Valkyrie is forged using industry-leading Carbon® DLS™ technology, ensuring unparalleled precision and material quality.</p>
+                    <div class="grid md:grid-cols-2 gap-8 items-center animate-on-scroll">
+                        <div class="text-center">
+                            <svg class="w-24 h-24 mx-auto mb-6 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                               <path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.82m5.84-2.56v4.82a6 6 0 01-1.82.32l-3.5-7L8.74 8.74l-7 3.5a6 6 0 012.83-5.84m2.56 5.84L8.74 8.74m0 0l3.5 7m-3.5-7l3.5-7m-3.5 7l-7 3.5a6 6 0 015.84-2.83m13.14 2.83l-7-3.5m7 3.5l-7 3.5a6 6 0 01-5.84-2.83m2.56 5.84l3.5-7m-3.5 7l-3.5-7" />
+                            </svg>
+                        </div>
+                        <div class="text-center md:text-left">
+                            <h3 class="text-3xl font-bold mb-2">3. Unleash Your Potential</h3>
+                            <p class="text-slate-400 text-lg">Your custom Valkyrie is forged using industry-leading Carbon® DLS™ technology, ensuring unparalleled precision and material quality.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -209,18 +219,18 @@
         <!-- A New Paradigm Section -->
         <section id="paradigm" class="py-20 sm-py-32">
             <div class="container mx-auto px-6">
-                <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div class="grid md:grid-cols-2 gap-12 items-center">
                      <div class="space-y-8 animate-on-scroll">
-                         <video class="w-full h-auto rounded-xl border-2 border-neutral-700" autoplay loop muted playsinline loading="lazy">
+                         <video class="w-full h-auto rounded-xl border-2 border-slate-700" autoplay loop muted playsinline loading="lazy">
                             <source src="assets/epu45-vs-commercial-foam-impact-hit.mp4" type="video/mp4">
                             Your browser does not support the video tag.
                          </video>
                          <img src="assets/Lattice Simulation.webp" 
                          alt="A looping 3D animation showing a close-up of the lattice structure absorbing an impact in slow motion."
-                         class="w-full h-auto rounded-xl border-2 border-neutral-700"
-                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/171717/FFFFFF?text=Animation+Unavailable';" loading="lazy">
+                         class="w-full h-auto rounded-xl border-2 border-slate-700"
+                         onerror="this.onerror=null;this.src='https://placehold.co/600x400/111827/FFFFFF?text=Animation+Unavailable';" loading="lazy">
                     </div>
-                    <div class="pl-0 md:pl-8 animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
+                    <div class="animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
                         <h3 class="text-sm font-bold uppercase text-brand-purple tracking-widest">The Science of Performance</h3>
                         <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mt-2 mb-2">More Than Protection. It's an Advantage.</h2>
                         <p class="text-lg text-brand-purple italic mb-6">Moving beyond simple compression to total impact control.</p>
@@ -229,48 +239,17 @@
                                 <svg class="w-6 h-6 text-brand-purple mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
                                 <div>
                                     <h4 class="font-bold text-white">Advanced Energy Damping</h4>
-                                    <p class="text-slate-300">Our AI designs a complex internal lattice that collapses with precision to absorb and redirect impact forces away from the head. </p>
+                                    <p class="text-slate-400">Our AI designs a complex internal lattice that collapses with precision to absorb and redirect impact forces away from the head. </p>
                                 </div>
                             </li>
                              <li class="flex items-start">
                                 <svg class="w-6 h-6 text-brand-purple mr-3 mt-1 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>
                                 <div>
                                     <h4 class="font-bold text-white">Tunable Rebound Performance</h4>
-                                    <p class="text-slate-300">Our machine learning model helps tune the lattice, reinforcing critical impact zones while optimizing for weight and ventilation.</p>
+                                    <p class="text-slate-400">Our machine learning model helps tune the lattice, reinforcing critical impact zones while optimizing for weight and ventilation.</p>
                                 </div>
                             </li>
                         </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- NEW: Roadmap Section -->
-        <section id="roadmap" class="py-20 sm:py-32 bg-neutral-900/50">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-16 max-w-3xl mx-auto animate-on-scroll">
-                    <h3 class="text-sm font-bold uppercase text-brand-purple tracking-widest">Our Plan</h3>
-                    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mt-2">From Prototype to Pitch-Ready.</h2>
-                </div>
-                <div class="grid md:grid-cols-4 gap-8">
-                    <div class="roadmap-card rounded-2xl p-6 animate-on-scroll">
-                        <div class="text-sm uppercase tracking-wide text-neutral-400">Now</div>
-                        <div class="mt-1 text-lg font-semibold text-brand-purple">Prototyping</div>
-                        <p class="mt-2 text-neutral-300">Harvard Innovation Labs, Stanford Additive Manufacturing.</p>
-                    </div>
-                    <div class="roadmap-card rounded-2xl p-6 animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
-                        <div class="text-sm uppercase tracking-wide text-neutral-400">2025</div>
-                        <div class="mt-1 text-lg font-semibold">Pilot Testing</div>
-                        <p class="mt-2 text-neutral-300">University & club teams; iterate on fit and impact metrics.</p>
-                    </div>
-                    <div class="roadmap-card rounded-2xl p-6 animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
-                        <div class="text-sm uppercase tracking-wide text-neutral-400">2026</div>
-                        <div class="mt-1 text-lg font-semibold">Certification</div>
-                        <p class="mt-2 text-neutral-300">Independent lab testing & regulatory trials.</p>
-                    </div>
-                    <div class="roadmap-card rounded-2xl p-6 animate-on-scroll" style="--scroll-anim-delay: 0.3s;">
-                        <div class="text-sm uppercase tracking-wide text-neutral-400">2027</div>
-                        <div class="mt-1 text-lg font-semibold">Launch</div>
-                        <p class="mt-2 text-neutral-300">Commercial release ahead of U.S. Rugby World Cup buildup.</p>
                     </div>
                 </div>
             </div>
@@ -287,30 +266,35 @@
                     <div class="feature-card p-6 rounded-lg text-center animate-on-scroll">
                         <svg class="w-12 h-12 mx-auto mb-4 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Apex Predator Aesthetic</h4>
-                        <p class="text-slate-300">A formidable, modern aesthetic designed to give you a psychological edge.</p>
+                        <p class="text-slate-400">A formidable, modern aesthetic designed to give you a psychological edge.</p>
                     </div>
                     <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
                        <svg class="w-12 h-12 mx-auto mb-4 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Featherlight Strength</h4>
-                        <p class="text-slate-300">Stronger and more durable at a fraction of the weight of traditional gear.</p>
+                        <p class="text-slate-400">Stronger and more durable at a fraction of the weight of traditional gear.</p>
                     </div>
                     <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
                         <svg class="w-12 h-12 mx-auto mb-4 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V3m-16.5 0h16.5m-16.5 0a2.25 2.25 0 0 0-2.25 2.25v11.25A2.25 2.25 0 0 0 3.75 19.5h16.5A2.25 2.25 0 0 0 22.5 17.25V5.25A2.25 2.25 0 0 0 20.25 3m-16.5 0Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Unobstructed Vision</h4>
-                        <p class="text-slate-300">A perfect fit guarantees total peripheral awareness without distraction.</p>
+                        <p class="text-slate-400">A perfect fit guarantees total peripheral awareness without distraction.</p>
                     </div>
                     <div class="feature-card p-6 rounded-lg text-center animate-on-scroll" style="--scroll-anim-delay: 0.3s;">
                         <svg class="w-12 h-12 mx-auto mb-4 text-brand-purple" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z" /></svg>
                         <h4 class="text-xl font-bold mb-2 text-white">Absolute Custom Fit</h4>
-                        <p class="text-slate-300">Moves as you move. A natural extension of your body with no pressure points.</p>
+                        <p class="text-slate-400">Moves as you move. A natural extension of your body with no pressure points.</p>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Mission & Founder Section -->
-        <section id="mission" class="py-20 sm:py-32 bg-neutral-900/50">
+        <section id="mission" class="py-20 sm:py-32 bg-slate-800/50">
             <div class="container mx-auto px-6">
-                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center animate-on-scroll">
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center animate-on-scroll">
+                    <div class="md:order-last">
+                        <div class="rounded-2xl border-2 border-slate-700 p-2">
+                            <img src="https://placehold.co/600x700/111827/7030A0?text=Founder+Photo" alt="Founder portrait of Dr. Cherise Dunn" class="w-full h-auto rounded-xl object-cover" loading="lazy"/>
+                        </div>
+                    </div>
                     <div>
                         <h3 class="text-sm font-bold uppercase text-brand-purple tracking-widest">Our Mission</h3>
                         <h2 class="text-3xl sm:text-4xl font-bold tracking-tighter mt-2">Built on science. Backed by innovation.</h2>
@@ -321,14 +305,11 @@
                             <p class="font-bold text-white">Dr. Cherise Dunn, PhD, MPH (Harvard)</p>
                             <p class="text-sm text-slate-400">Founder, Impact Mechanica</p>
                         </div>
-                         <div class="mt-8 pt-6 border-t border-neutral-700 flex flex-wrap items-center gap-x-8 gap-y-4">
+                         <div class="mt-8 pt-6 border-t border-slate-700 flex flex-wrap items-center gap-x-8 gap-y-4">
                              <img src="assets/Harvard Innovation Labs Logo 1.png" alt="Harvard Innovation Labs" class="h-12 opacity-80" loading="lazy"/>
                              <img src="assets/carbon_mark_white.svg" alt="Carbon 3D Logo" class="h-8 opacity-90" loading="lazy"/>
-                             <p class="font-semibold text-slate-300">Stanford Additive Manufacturing</p>
+                             <p class="font-semibold text-slate-400">Stanford Additive Manufacturing</p>
                         </div>
-                    </div>
-                    <div class="rounded-2xl border-2 border-neutral-700 p-2">
-                        <img src="https://placehold.co/600x700/171717/7030A0?text=Founder+Photo" alt="Founder portrait of Dr. Cherise Dunn" class="w-full h-auto rounded-xl object-cover" loading="lazy"/>
                     </div>
                 </div>
             </div>
@@ -342,50 +323,50 @@
                 </div>
                 <div class="max-w-3xl mx-auto space-y-4 animate-on-scroll">
                     <!-- FAQ Item 1 -->
-                    <details class="group bg-neutral-800/50 p-6 rounded-lg transition-all duration-300 hover:bg-neutral-800">
+                    <details class="group faq-item p-6 rounded-lg">
                         <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
                             How does the 3D scanning process work?
                             <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                         </summary>
-                        <p class="text-slate-300 mt-4 pt-4 border-t border-neutral-700">Once you join the pilot program, you'll get access to our Kintura™ mobile app. The app uses your iPhone's TrueDepth camera to guide you through a simple, quick, and accurate 3D scan of your head, creating the digital blueprint for your custom head guard.</p>
+                        <p class="text-slate-400 mt-4 pt-4 border-t border-slate-700">Once you join the pilot program, you'll get access to our Kintura™ mobile app. The app uses your iPhone's TrueDepth camera to guide you through a simple, quick, and accurate 3D scan of your head, creating the digital blueprint for your custom head guard.</p>
                     </details>
                     <!-- FAQ Item 2 -->
-                    <details class="group bg-neutral-800/50 p-6 rounded-lg transition-all duration-300 hover:bg-neutral-800">
+                    <details class="group faq-item p-6 rounded-lg">
                         <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
                             What is the expected cost after the pilot program?
                             <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                         </summary>
-                        <p class="text-slate-300 mt-4 pt-4 border-t border-neutral-700">While final pricing is yet to be determined, our goal is to make personalized protection accessible. Pilot program participants will receive an exclusive discount on the final product. Sign up to stay informed about launch pricing.</p>
+                        <p class="text-slate-400 mt-4 pt-4 border-t border-slate-700">While final pricing is yet to be determined, our goal is to make personalized protection accessible. Pilot program participants will receive an exclusive discount on the final product. Sign up to stay informed about launch pricing.</p>
                     </details>
                     <!-- FAQ Item 3 -->
-                    <details class="group bg-neutral-800/50 p-6 rounded-lg transition-all duration-300 hover:bg-neutral-800">
+                    <details class="group faq-item p-6 rounded-lg">
                         <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
                            Is the head guard approved for my league?
                            <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                         </summary>
-                        <p class="text-slate-300 mt-4 pt-4 border-t border-neutral-700">The Valkyrie Head Guard V1 is engineered to meet and exceed World Rugby Regulation 12 performance and safety standards. This makes it eligible for play at all levels of the game, from youth leagues to professional matches.</p>
+                        <p class="text-slate-400 mt-4 pt-4 border-t border-slate-700">The Valkyrie Head Guard V1 is engineered to meet and exceed World Rugby Regulation 12 performance and safety standards. This makes it eligible for play at all levels of the game, from youth leagues to professional matches.</p>
                     </details>
                 </div>
             </div>
         </section>
         <!-- Early Access CTA Section -->
-        <section id="early-access" class="py-20 sm:py-32 bg-neutral-900/50">
+        <section id="early-access" class="py-20 sm:py-32 bg-slate-800/50">
             <div class="container mx-auto px-6 text-center">
                 <div id="form-container" class="max-w-3xl mx-auto animate-on-scroll">
                     <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter">Be part of the future of rugby protection.</h2>
-                    <p class="text-slate-300 mt-4 text-lg leading-relaxed">Sign up for early updates, pilot invitations, and launch details. Pilot program spots are limited.</p>
+                    <p class="text-slate-400 mt-4 text-lg leading-relaxed">Sign up for early updates, pilot invitations, and launch details. Pilot program spots are limited.</p>
                     <form id="waitlist-form" action="#" method="post" class="mt-8 max-w-lg mx-auto" aria-label="Join the waitlist form">
                         <div class="grid gap-4 sm:grid-cols-2">
                              <label class="sr-only" for="name">Name</label>
-                             <input id="name" name="name" type="text" required placeholder="Full name" class="w-full px-5 py-4 rounded-lg bg-neutral-800 border-2 border-neutral-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-brand-purple transition" />
+                             <input id="name" name="name" type="text" required placeholder="Full name" class="w-full px-5 py-4 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-brand-purple transition" />
                              <label class="sr-only" for="email">Email</label>
-                             <input id="email" name="email" type="email" required placeholder="Email address" class="w-full px-5 py-4 rounded-lg bg-neutral-800 border-2 border-neutral-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-brand-purple transition" />
+                             <input id="email" name="email" type="email" required placeholder="Email address" class="w-full px-5 py-4 rounded-lg bg-slate-700 border-2 border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-purple focus:border-brand-purple transition" />
                         </div>
-                        <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm text-neutral-300 mt-4 text-left px-2">
-                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Athlete" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Athlete</label>
-                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Parent" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Parent</label>
-                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Coach" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Coach</label>
-                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Club" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-neutral-700 border-neutral-600"/> Club</label>
+                        <div class="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 text-sm text-slate-300 mt-4 text-left px-2">
+                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Athlete" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-slate-600 border-slate-500"/> Athlete</label>
+                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Parent" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-slate-600 border-slate-500"/> Parent</label>
+                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Coach" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-slate-600 border-slate-500"/> Coach</label>
+                             <label class="flex items-center gap-2"><input type="checkbox" name="type" value="Club" class="h-4 w-4 rounded text-brand-purple focus:ring-brand-purple bg-slate-600 border-slate-500"/> Club</label>
                         </div>
                          <button id="submit-button" type="submit" class="w-full mt-6 bg-brand-purple text-white font-bold px-8 py-4 rounded-lg hover:bg-brand-purple-dark transition-transform hover:scale-105" style="box-shadow: 0 10px 30px rgba(112, 48, 160, 0.4);">
                             Join the Waitlist
@@ -397,7 +378,7 @@
         </section>
     </main>
     <!-- Footer -->
-    <footer class="bg-neutral-900">
+    <footer class="bg-slate-900">
         <div class="container mx-auto px-6 py-8">
             <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="flex flex-col items-center md:items-start">
@@ -459,7 +440,7 @@
                         // On success, show a thank you message
                         formContainer.innerHTML = `
                             <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter text-brand-purple">Thank You!</h2>
-                            <p class="text-slate-300 mt-4 text-lg leading-relaxed">You're on the list. We'll be in touch with updates about the pilot program and official launch.</p>
+                            <p class="text-slate-400 mt-4 text-lg leading-relaxed">You're on the list. We'll be in touch with updates about the pilot program and official launch.</p>
                         `;
                     }, 1500);
                 });
