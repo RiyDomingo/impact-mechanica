@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF--8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +54,6 @@
         }
         /* Gooey Text Animation Styles */
         .gooey-container {
-            /* filter: url(#gooey-filter); REMOVED FROM HERE */
             position: relative;
             width: 100%;
             height: 200px; /* Height for the animation area */
@@ -133,7 +134,7 @@
         <svg style="display:none;">
             <defs>
                 <filter id="gooey-filter">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="8" result="blur" />
                     <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
                     <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
                 </filter>
@@ -500,35 +501,30 @@
             const text1 = document.getElementById('gooey-text-1');
             const text2 = document.getElementById('gooey-text-2');
 
-            // FIX: Set the filter URL dynamically to ensure it works on deployed sites
-            if (gooeyContainer) {
-                const currentUrl = window.location.href.split('#')[0];
-                gooeyContainer.style.filter = `url(${currentUrl}#gooey-filter)`;
-            }
+            if (!text1 || !text2 || !gooeyContainer) return;
 
+            // FIX: Set the filter URL dynamically to ensure it works on deployed sites
+            const currentUrl = window.location.href.split('#')[0];
+            gooeyContainer.style.filter = `url(${currentUrl}#gooey-filter)`;
+            
             const texts = ["Protection", "Perfected."];
-            const morphTime = 1;
-            const cooldownTime = 0.4;
-            let textIndex = texts.length - 1;
+            const morphTime = 2; // Animation duration in seconds
+            const cooldownTime = 0.5; // Initial delay before starting
+
             let time = new Date();
             let morph = 0;
             let cooldown = cooldownTime;
             let animationFrameId;
+            let animationCompleted = false;
 
-            text1.textContent = texts[textIndex % texts.length];
-            text2.textContent = texts[(textIndex + 1) % texts.length];
-
-            function doMorph() {
-                morph -= cooldown;
-                cooldown = 0;
-                let fraction = morph / morphTime;
-                if (fraction > 1) {
-                    cooldown = cooldownTime;
-                    fraction = 1;
-                }
-                setMorph(fraction);
-            }
-
+            // --- INITIAL STATE FIX ---
+            text1.textContent = texts[0];
+            text2.textContent = texts[1];
+            text1.style.opacity = '1';
+            text2.style.opacity = '0';
+            text1.style.filter = 'blur(0px)';
+            text2.style.filter = 'blur(0px)';
+            
             function setMorph(fraction) {
                 text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
                 text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
@@ -537,41 +533,50 @@
                 text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
             }
 
-            function doCooldown() {
-                morph = 0;
-                text2.style.filter = "";
-                text2.style.opacity = "100%";
-                text1.style.filter = "";
-                text1.style.opacity = "0%";
-            }
-
             function animate() {
+                if (animationCompleted) {
+                    // Ensure final state is clean
+                    text1.style.opacity = '0';
+                    text2.style.opacity = '1';
+                    text1.style.filter = '';
+                    text2.style.filter = '';
+                    cancelAnimationFrame(animationFrameId);
+                    return;
+                }
+
                 animationFrameId = requestAnimationFrame(animate);
+                
                 let newTime = new Date();
-                let shouldIncrementIndex = cooldown > 0;
                 let dt = (newTime - time) / 1000;
                 time = newTime;
+                
                 cooldown -= dt;
+
                 if (cooldown <= 0) {
-                    if (shouldIncrementIndex) {
-                        textIndex++;
-                        text1.textContent = texts[textIndex % texts.length];
-                        text2.textContent = texts[(textIndex + 1) % texts.length];
+                    cooldown = 0; // Prevent it from going further negative
+                    morph += dt;
+                    let fraction = morph / morphTime;
+
+                    if (fraction >= 1) {
+                        fraction = 1;
+                        animationCompleted = true; // Mark as complete to stop on next frame
                     }
-                    doMorph();
-                } else {
-                    doCooldown();
+                    setMorph(fraction);
                 }
             }
 
-            // Start the gooey animation
-            animate();
+            // Start the animation after a short delay
+            setTimeout(() => {
+                time = new Date(); // Reset time right before starting
+                animate();
+            }, 100);
 
-            // Total time for loader to be visible before fading
-            const loaderVisibleTime = 3500; 
+
+            // Total time for loader to be visible before fading out
+            const loaderVisibleTime = 4000; 
 
             setTimeout(() => {
-                cancelAnimationFrame(animationFrameId); // Stop the animation
+                animationCompleted = true; // Force stop animation if it's still running
                 if (loadingScreen) {
                     loadingScreen.classList.add('loader-fade-out');
                 }
@@ -589,6 +594,4 @@
     </script>
 </body>
 </html>
-
-
 
