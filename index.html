@@ -52,7 +52,7 @@
         }
         /* Gooey Text Animation Styles */
         .gooey-container {
-            filter: url(#gooey-filter);
+            /* filter: url(#gooey-filter); REMOVED FROM HERE */
             position: relative;
             width: 100%;
             height: 200px; /* Height for the animation area */
@@ -496,8 +496,15 @@
             const header = document.getElementById('page-header');
             const mainContent = document.getElementById('main-content');
             
+            const gooeyContainer = document.querySelector('.gooey-container');
             const text1 = document.getElementById('gooey-text-1');
             const text2 = document.getElementById('gooey-text-2');
+
+            // FIX: Set the filter URL dynamically to ensure it works on deployed sites
+            if (gooeyContainer) {
+                const currentUrl = window.location.href.split('#')[0];
+                gooeyContainer.style.filter = `url(${currentUrl}#gooey-filter)`;
+            }
 
             const texts = ["Protection", "Perfected."];
             const morphTime = 1;
@@ -582,5 +589,6 @@
     </script>
 </body>
 </html>
+
 
 
