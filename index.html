@@ -121,6 +121,11 @@
         details > summary::-webkit-details-marker {
           display: none;
         }
+        .static-gooey {
+            filter: url('#gooey-static-filter');
+            letter-spacing: -5px; /* Pull letters closer */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* ADDED FOR READABILITY */
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -138,8 +143,8 @@
                     <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
                     <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
                 </filter>
-                <filter id="gooey-hover-filter">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur" />
+                 <filter id="gooey-static-filter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
                     <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
                     <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
                 </filter>
@@ -168,7 +173,7 @@
              <div class="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/80 to-transparent"></div>
             <div class="container mx-auto px-6 relative z-10 text-center">
                 <h1 class="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter leading-tight">
-                    The First Digitally Manufactured <span id="gooey-headline" class="text-brand-purple">Rugby Head Guard.</span>
+                    The First Digitally Manufactured <span class="text-brand-purple static-gooey">Rugby Head Guard.</span>
                 </h1>
                 <p class="max-w-2xl mx-auto text-lg md:text-xl text-neutral-300 my-8">
                    Custom-fit protection using iPhone 3D scanning, AI lattice design, and additive manufacturing — addressing rugby’s concussion challenge head‑on.
@@ -505,40 +510,17 @@
             const gooeyContainer = document.querySelector('.gooey-container');
             const text1 = document.getElementById('gooey-text-1');
             const text2 = document.getElementById('gooey-text-2');
-            const gooeyHeadline = document.getElementById('gooey-headline');
+            const gooeyHeadline = document.querySelector('.static-gooey');
 
             if (!text1 || !text2 || !gooeyContainer) return;
 
             // FIX: Set the filter URL dynamically to ensure it works on deployed sites
             const currentUrl = window.location.href.split('#')[0];
             gooeyContainer.style.filter = `url(${currentUrl}#gooey-filter)`;
-
-            // --- Gooey Hover Effect for Static Headline ---
-            if (gooeyHeadline) {
-                // Create a dynamic style rule to handle the absolute URL for the hover filter
-                const styleSheet = document.createElement("style");
-                styleSheet.innerText = `
-                    .gooey-active {
-                        filter: url(${currentUrl}#gooey-hover-filter);
-                        letter-spacing: 0.5px;
-                        transform: scale(1.01);
-                    }
-                    #gooey-headline {
-                        transition: all 0.3s ease;
-                        display: inline-block;
-                    }
-                `;
-                document.head.appendChild(styleSheet);
-
-                gooeyHeadline.addEventListener('mouseenter', () => {
-                    gooeyHeadline.classList.add('gooey-active');
-                });
-
-                gooeyHeadline.addEventListener('mouseleave', () => {
-                    gooeyHeadline.classList.remove('gooey-active');
-                });
+            if(gooeyHeadline) {
+                 gooeyHeadline.style.filter = `url(${currentUrl}#gooey-static-filter)`;
             }
-            
+
             const texts = ["Protection", "Perfected."];
             const morphTime = 2; // Animation duration in seconds
             const cooldownTime = 0.5; // Initial delay before starting
@@ -626,10 +608,4 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
 
