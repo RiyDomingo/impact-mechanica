@@ -50,6 +50,31 @@
         .loader-fade-out {
             opacity: 0;
         }
+        /* Gooey Text Animation Styles */
+        .gooey-container {
+            filter: url(#gooey-filter);
+            position: relative;
+            width: 100%;
+            height: 200px; /* Height for the animation area */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .gooey-text {
+            position: absolute;
+            text-align: center;
+            font-size: 4rem;
+            line-height: 1;
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            color: #7030A0; /* brand-purple */
+            transition: all 0.2s;
+        }
+        @media (min-width: 768px) {
+            .gooey-text {
+                font-size: 6rem;
+            }
+        }
         .header-bg {
             background-color: rgba(49, 49, 49, 0.8);
             backdrop-filter: blur(12px);
@@ -100,9 +125,20 @@
 <body class="antialiased">
     <!-- Loading Screen -->
     <div id="loading-screen" class="fixed inset-0 bg-[#313131] flex items-center justify-center z-[100] transition-opacity duration-1000 ease-out">
-        <h1 class="text-5xl md:text-7xl font-black tracking-tighter text-brand-purple animate-pulse">
-            Protection Perfected.
-        </h1>
+        <div class="gooey-container">
+            <span id="gooey-text-1" class="gooey-text"></span>
+            <span id="gooey-text-2" class="gooey-text"></span>
+        </div>
+        <!-- SVG Filter for Gooey Effect -->
+        <svg style="display:none;">
+            <defs>
+                <filter id="gooey-filter">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="gooey" />
+                    <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
+                </filter>
+            </defs>
+        </svg>
     </div>
     <!-- Header -->
     <header id="page-header" class="header-bg fixed top-0 left-0 right-0 z-50">
@@ -181,6 +217,10 @@
                      <div class="animate-on-scroll" style="--scroll-anim-delay: 0.1s;">
                         <div class="text-8xl lg:text-9xl font-black text-brand-purple">60%</div>
                         <p class="mt-2 text-xl text-neutral-300">of concussions are under-reported by players <span class="text-sm text-neutral-500 block">(BMJ Sports Med)</span></p>
+                    </div>
+                    <div class="animate-on-scroll" style="--scroll-anim-delay: 0.2s;">
+                        <div class="text-8xl lg:text-9xl font-black text-brand-purple">40%</div>
+                        <p class="mt-2 text-xl text-neutral-300">increased risk of developing neurodegenerative diseases like MND <span class="text-sm text-neutral-500 block">(University of Glasgow)</span></p>
                     </div>
                 </div>
             </div>
@@ -450,14 +490,81 @@
             }
         });
 
-        // --- Loading Screen Script ---
+        // --- Gooey Text & Loading Screen Script ---
         window.addEventListener('load', () => {
             const loadingScreen = document.getElementById('loading-screen');
             const header = document.getElementById('page-header');
             const mainContent = document.getElementById('main-content');
+            
+            const text1 = document.getElementById('gooey-text-1');
+            const text2 = document.getElementById('gooey-text-2');
 
-            // Start the fade out after a short delay
+            const texts = ["Protection", "Perfected."];
+            const morphTime = 1;
+            const cooldownTime = 0.4;
+            let textIndex = texts.length - 1;
+            let time = new Date();
+            let morph = 0;
+            let cooldown = cooldownTime;
+            let animationFrameId;
+
+            text1.textContent = texts[textIndex % texts.length];
+            text2.textContent = texts[(textIndex + 1) % texts.length];
+
+            function doMorph() {
+                morph -= cooldown;
+                cooldown = 0;
+                let fraction = morph / morphTime;
+                if (fraction > 1) {
+                    cooldown = cooldownTime;
+                    fraction = 1;
+                }
+                setMorph(fraction);
+            }
+
+            function setMorph(fraction) {
+                text2.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+                text2.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+                fraction = 1 - fraction;
+                text1.style.filter = `blur(${Math.min(8 / fraction - 8, 100)}px)`;
+                text1.style.opacity = `${Math.pow(fraction, 0.4) * 100}%`;
+            }
+
+            function doCooldown() {
+                morph = 0;
+                text2.style.filter = "";
+                text2.style.opacity = "100%";
+                text1.style.filter = "";
+                text1.style.opacity = "0%";
+            }
+
+            function animate() {
+                animationFrameId = requestAnimationFrame(animate);
+                let newTime = new Date();
+                let shouldIncrementIndex = cooldown > 0;
+                let dt = (newTime - time) / 1000;
+                time = newTime;
+                cooldown -= dt;
+                if (cooldown <= 0) {
+                    if (shouldIncrementIndex) {
+                        textIndex++;
+                        text1.textContent = texts[textIndex % texts.length];
+                        text2.textContent = texts[(textIndex + 1) % texts.length];
+                    }
+                    doMorph();
+                } else {
+                    doCooldown();
+                }
+            }
+
+            // Start the gooey animation
+            animate();
+
+            // Total time for loader to be visible before fading
+            const loaderVisibleTime = 3500; 
+
             setTimeout(() => {
+                cancelAnimationFrame(animationFrameId); // Stop the animation
                 if (loadingScreen) {
                     loadingScreen.classList.add('loader-fade-out');
                 }
@@ -465,15 +572,15 @@
                     header.style.opacity = '1';
                     mainContent.style.opacity = '1';
                 }
-                // Remove the loader from the DOM after the transition
                 setTimeout(() => {
                     if (loadingScreen) {
                         loadingScreen.style.display = 'none';
                     }
                 }, 1000); // Should match transition duration
-            }, 1500); // Minimum time loader is visible
+            }, loaderVisibleTime);
         });
     </script>
 </body>
 </html>
+
 
