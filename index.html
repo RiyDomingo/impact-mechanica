@@ -20,9 +20,7 @@
             }
         }
     </script>
-    <!-- 1. Add the Model Viewer script -->
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
-    <!-- 2. Add Lucide Icons script -->
+    <!-- Lucide Icons script -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,10 +98,6 @@
             background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(to right, white 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.1;
-        }
-        model-viewer {
-            width: 100%;
-            height: 500px;
         }
         /* Styles for scroll animations */
         .animate-on-scroll {
@@ -192,21 +186,9 @@
                     <p class="font-bold text-brand-purple">Now participating in World Rugby's Law 4 Headgear Trial.</p>
                 </div>
                 <div class="max-w-3xl mx-auto mt-8">
-                     <model-viewer 
-                         src="assets/Scrum Cap v1.1.glb"
-                         ios-src="assets/Scrum Cap v1.1.usdz"
-                         alt="A 3D model of the Impact Mechanica Valkyrie Head Guard V1"
-                         ar
-                         auto-rotate
-                         rotation-per-second="15deg"
-                         camera-controls
-                         camera-orbit="0deg 75deg 105%"
-                         shadow-intensity="0.5"
-                         exposure="3.0"
-                         tone-mapping="commerce"
-                         style="--mv-progress-bar-color: #7030A0; --model-viewer-background-color: #FFFFFF;"
-                         class="w-full h-[400px] rounded-2xl border-2 border-neutral-700 hero-glow">
-                    </model-viewer>
+                     <img src="https://placehold.co/1200x800/313131/7030A0?text=Valkyrie+Head+Guard" 
+                         alt="A high-quality image of the Impact Mechanica Valkyrie Head Guard"
+                         class="w-full h-auto rounded-2xl border-2 border-neutral-700 hero-glow">
                 </div>
                  <p class="mt-6 text-sm text-neutral-400">Pre‑seed stage • Prototypes in development</p>
             </div>
@@ -431,10 +413,26 @@
                     <!-- FAQ Item -->
                     <details class="group faq-item p-6 rounded-lg">
                         <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
+                           Does the head guard prevent concussions?
+                           <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                        </summary>
+                        <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">No head guard can claim to prevent concussions. Concussions are complex brain injuries that can be caused by a variety of forces. However, the Valkyrie Head Guard is engineered to significantly reduce the risk by absorbing and dissipating impact forces more effectively than traditional foam. Our mission is to provide the most advanced protection possible to mitigate the factors that contribute to these injuries.</p>
+                    </details>
+                     <!-- FAQ Item -->
+                    <details class="group faq-item p-6 rounded-lg">
+                        <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
                            Is the head guard approved for my league?
                            <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                         </summary>
                         <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">The Valkyrie Head Guard V1 is currently participating in World Rugby's global Law 4 Headgear Trial. It has been engineered from the ground up to meet and exceed World Rugby Regulation 12 performance and safety standards, making it eligible for play at all levels of the game upon successful completion of the trial.</p>
+                    </details>
+                     <!-- FAQ Item -->
+                    <details class="group faq-item p-6 rounded-lg">
+                        <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
+                           Does the open-lattice design affect hearing on the field?
+                           <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                        </summary>
+                        <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">The open-cell lattice structure is designed to allow for superior airflow and does not obstruct hearing. Unlike traditional thick foam head guards that can muffle sound, the Valkyrie is engineered to ensure you have maximum situational awareness and can communicate clearly with your teammates on the pitch.</p>
                     </details>
                      <!-- FAQ Item -->
                     <details class="group faq-item p-6 rounded-lg">
@@ -460,6 +458,14 @@
                         </summary>
                         <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">The Valkyrie is engineered for season-after-season resilience. Forged from elite Carbon® polymers, it resists the degradation, cracking, and tearing that plagues traditional foam head guards, making it a long-term investment in your safety and performance.</p>
                     </details>
+                     <!-- FAQ Item -->
+                    <details class="group faq-item p-6 rounded-lg">
+                        <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
+                           What happens after I join the waitlist?
+                           <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
+                        </summary>
+                        <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">Joining the waitlist gives you priority access. As we expand our pilot program, we will send invitations to waitlist members based on their role (athlete, parent, etc.) and location. You are not obligated to purchase, but you will be among the first to have the opportunity to join the program and help shape the future of protection.</p>
+                    </details>
                      <!-- FAQ Item about Kintura App -->
                     <details class="group faq-item p-6 rounded-lg">
                         <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
@@ -467,30 +473,6 @@
                            <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
                         </summary>
                         <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">The Kintura™ app is our proprietary scanning software, currently exclusive to pilot program participants. It uses your iPhone's TrueDepth camera to provide a guided, user-friendly experience to capture a flawless scan in minutes. An Android version is on our future roadmap.</p>
-                    </details>
-                     <!-- NEW FAQ Item -->
-                    <details class="group faq-item p-6 rounded-lg">
-                        <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
-                           Does the head guard prevent concussions?
-                           <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
-                        </summary>
-                        <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">No head guard can claim to prevent concussions. Concussions are complex brain injuries that can be caused by a variety of forces. However, the Valkyrie Head Guard is engineered to significantly reduce the risk by absorbing and dissipating impact forces more effectively than traditional foam. Our mission is to provide the most advanced protection possible to mitigate the factors that contribute to these injuries.</p>
-                    </details>
-                     <!-- NEW FAQ Item -->
-                    <details class="group faq-item p-6 rounded-lg">
-                        <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
-                           Does the open-lattice design affect hearing on the field?
-                           <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
-                        </summary>
-                        <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">The open-cell lattice structure is designed to allow for superior airflow and does not obstruct hearing. Unlike traditional thick foam head guards that can muffle sound, the Valkyrie is engineered to ensure you have maximum situational awareness and can communicate clearly with your teammates on the pitch.</p>
-                    </details>
-                     <!-- NEW FAQ Item -->
-                    <details class="group faq-item p-6 rounded-lg">
-                        <summary class="font-bold text-lg cursor-pointer flex justify-between items-center group-open:text-brand-purple">
-                           What happens after I join the waitlist?
-                           <svg class="w-5 h-5 transition-transform duration-300 group-open:rotate-180" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" /></svg>
-                        </summary>
-                        <p class="faq-answer mt-4 pt-4 border-t border-neutral-700">Joining the waitlist gives you priority access. As we expand our pilot program, we will send invitations to waitlist members based on their role (athlete, parent, etc.) and location. You are not obligated to purchase, but you will be among the first to have the opportunity to join the program and help shape the future of protection.</p>
                     </details>
                 </div>
             </div>
